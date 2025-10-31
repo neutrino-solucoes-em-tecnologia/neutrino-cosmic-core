@@ -16,67 +16,67 @@ const companies: Company[] = [
   {
     name: 'Boson Rewards',
     description: 'Programa de fidelidade e recompensas',
-    color: '#B9A44C',
+    color: '#60A5FA',
     position: [3, 0, 0],
   },
   {
     name: 'Photon Media',
     description: 'Soluções em mídia e comunicação',
-    color: '#6A00F4',
+    color: '#A78BFA',
     position: [2.5, 2, 0],
   },
   {
     name: 'Graviton Bank',
     description: 'Tecnologia financeira e banking',
-    color: '#0C4767',
+    color: '#34D399',
     position: [1, 2.8, 0],
   },
   {
     name: 'QuarkCode',
     description: 'Desenvolvimento de software',
-    color: '#566E3D',
+    color: '#F472B6',
     position: [-1, 2.8, 0],
   },
   {
     name: 'Muon City',
     description: 'Smart cities e IoT',
-    color: '#B9A44C',
+    color: '#60A5FA',
     position: [-2.5, 2, 0],
   },
   {
     name: 'GluonPet',
     description: 'Tecnologia para pet care',
-    color: '#6A00F4',
+    color: '#A78BFA',
     position: [-3, 0, 0],
   },
   {
     name: 'Lepton Skin',
     description: 'Tecnologia para beleza e cosmética',
-    color: '#0C4767',
+    color: '#F472B6',
     position: [-2.5, -2, 0],
   },
   {
     name: 'Tachyon Aroma',
     description: 'Tecnologia sensorial e aromaterapia',
-    color: '#566E3D',
+    color: '#34D399',
     position: [-1, -2.8, 0],
   },
   {
     name: 'Proton Motors',
     description: 'Mobilidade e veículos elétricos',
-    color: '#B9A44C',
+    color: '#60A5FA',
     position: [1, -2.8, 0],
   },
   {
     name: 'Quasar Home',
     description: 'Automação residencial',
-    color: '#6A00F4',
+    color: '#A78BFA',
     position: [2.5, -2, 0],
   },
   {
     name: 'Electron Commerce',
     description: 'E-commerce e marketplace',
-    color: '#0C4767',
+    color: '#34D399',
     position: [0, 0, 3],
   },
 ];
@@ -133,9 +133,9 @@ function NucleusCore() {
       <mesh>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial
-          color="#0C4767"
-          emissive="#0C4767"
-          emissiveIntensity={1}
+          color="#60A5FA"
+          emissive="#60A5FA"
+          emissiveIntensity={1.5}
           metalness={1}
           roughness={0}
         />
@@ -144,7 +144,13 @@ function NucleusCore() {
       {/* Glow effect */}
       <mesh scale={1.5}>
         <sphereGeometry args={[0.5, 32, 32]} />
-        <meshBasicMaterial color="#0C4767" opacity={0.3} transparent />
+        <meshBasicMaterial color="#60A5FA" opacity={0.4} transparent />
+      </mesh>
+      
+      {/* Outer glow */}
+      <mesh scale={2}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshBasicMaterial color="#A78BFA" opacity={0.2} transparent />
       </mesh>
     </group>
   );
@@ -185,9 +191,10 @@ export const Ecosystem3D = () => {
               autoRotateSpeed={0.5}
             />
             
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} color="#B9A44C" />
+            <ambientLight intensity={0.6} />
+            <pointLight position={[10, 10, 10]} intensity={1.2} color="#60A5FA" />
+            <pointLight position={[-10, -10, -10]} intensity={0.8} color="#A78BFA" />
+            <pointLight position={[0, 10, -10]} intensity={0.6} color="#34D399" />
             
             <NucleusCore />
             
