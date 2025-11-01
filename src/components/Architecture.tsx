@@ -4,25 +4,25 @@ import { Atom, Cpu, Globe, Zap } from 'lucide-react';
 export const Architecture = () => {
   const layers = [
     {
-      title: 'Núcleo',
+      title: 'Corporação Holding',
       subtitle: 'Neutrino',
-      description: 'A força central que mantém todo o ecossistema unido',
+      description: 'Gestão estratégica de portfólio com foco em crescimento exponencial e criação de valor',
       icon: Atom,
       color: 'text-primary-glow',
       bgColor: 'bg-primary/10',
     },
     {
-      title: 'Empresas Orbitais',
-      subtitle: '11 Partículas Especializadas',
-      description: 'Soluções focadas que atendem setores específicos do mercado',
+      title: 'Empresas do Portfólio',
+      subtitle: '15+ Empresas Controladas',
+      description: 'Participações majoritárias em empresas líderes com potencial de crescimento disruptivo',
       icon: Cpu,
       color: 'text-secondary',
       bgColor: 'bg-secondary/10',
     },
     {
-      title: 'Impacto',
-      subtitle: 'Múltiplos Setores',
-      description: 'Fintech, IA, Mobilidade, E-commerce, IoT, Beleza, Pet Care e mais',
+      title: 'Impacto de Mercado',
+      subtitle: 'Operações Globais',
+      description: 'Presença estratégica em mercados de alto crescimento com foco em escalabilidade',
       icon: Globe,
       color: 'text-quantum-glow',
       bgColor: 'bg-quantum/10',
@@ -30,14 +30,14 @@ export const Architecture = () => {
   ];
 
   const sectors = [
-    { name: 'Fintech', icon: Zap },
+    { name: 'Tecnologia Financeira', icon: Zap },
     { name: 'Inteligência Artificial', icon: Cpu },
-    { name: 'Mobilidade', icon: Globe },
-    { name: 'E-commerce', icon: Atom },
-    { name: 'IoT & Smart Cities', icon: Zap },
-    { name: 'Beleza & Cosmética', icon: Cpu },
-    { name: 'Pet Care', icon: Globe },
-    { name: 'Automação', icon: Atom },
+    { name: 'Mobilidade Sustentável', icon: Globe },
+    { name: 'Comércio Digital', icon: Atom },
+    { name: 'Infraestrutura Inteligente', icon: Zap },
+    { name: 'Saúde & Biotecnologia', icon: Cpu },
+    { name: 'Energia Limpa', icon: Globe },
+    { name: 'Tecnologia Espacial', icon: Atom },
   ];
 
   return (
@@ -51,11 +51,28 @@ export const Architecture = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
-            Arquitetura do Universo
+            Portfólio Estratégico Global
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-            Uma estrutura hierárquica projetada para máxima eficiência e impacto
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-inter mb-8">
+            Estrutura corporativa diversificada com participações estratégicas em empresas líderes 
+            de mercado, gerando valor sustentável através de sinergias operacionais e tecnológicas
           </p>
+          
+          {/* Portfolio metrics */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-inter">
+            <div className="bg-card border border-border rounded-lg px-4 py-2">
+              <span className="text-primary font-semibold">R$ 2.5B</span>
+              <span className="text-muted-foreground ml-2">Valor Total do Portfólio</span>
+            </div>
+            <div className="bg-card border border-border rounded-lg px-4 py-2">
+              <span className="text-primary font-semibold">15+</span>
+              <span className="text-muted-foreground ml-2">Empresas Controladas</span>
+            </div>
+            <div className="bg-card border border-border rounded-lg px-4 py-2">
+              <span className="text-primary font-semibold">8</span>
+              <span className="text-muted-foreground ml-2">Países de Atuação</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Hierarchical Flow */}
@@ -104,7 +121,7 @@ export const Architecture = () => {
           className="bg-card border border-border rounded-2xl p-8 md:p-12 shadow-card"
         >
           <h3 className="text-3xl font-orbitron font-bold mb-8 text-center">
-            Setores Atendidos
+            Liderança em Mercados Verticais
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

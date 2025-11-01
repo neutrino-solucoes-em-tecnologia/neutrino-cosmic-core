@@ -15,7 +15,7 @@ export const Footer = () => {
       title: 'Empresa',
       links: [
         { name: 'Sobre', href: '#about' },
-        { name: 'Ecossistema', href: '#ecosystem' },
+        { name: 'Ecossistema', href: '/ecossistema' },
         { name: 'Tecnologia', href: '#technology' },
         { name: 'Equipe', href: '#team' },
       ],
@@ -31,8 +31,7 @@ export const Footer = () => {
     {
       title: 'Contato',
       links: [
-        { name: 'contato@neutrino.tech', href: 'mailto:contato@neutrino.tech' },
-        { name: '+55 (11) 9999-9999', href: 'tel:+5511999999999' },
+        { name: 'neutrino@neutrino.dev.br', href: 'mailto:neutrino@neutrino.dev.br' },
       ],
     },
   ];
@@ -139,13 +138,16 @@ export const Footer = () => {
           className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-inter"
         >
           <p>
-            © {currentYear} Neutrino Soluções em Tecnologia. Todos os direitos reservados.
+            © {currentYear} Neutrino Holdings Inc. Todos os direitos reservados.
           </p>
           
-          <p className="text-center md:text-right">
-            <span className="text-secondary font-semibold">O universo Neutrino</span> — 
-            cada partícula é um propósito
-          </p>
+          <div className="flex flex-wrap gap-4 text-xs">
+            <span>B3: NTNO3</span>
+            <span>•</span>
+            <span>Valor de Mercado: R$ 2,5B</span>
+            <span>•</span>
+            <span>Operações Globais</span>
+          </div>
         </motion.div>
       </div>
 

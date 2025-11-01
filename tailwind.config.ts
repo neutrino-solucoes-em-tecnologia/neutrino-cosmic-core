@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        'tt-hoves': ['TT Hoves', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -111,6 +112,10 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.8)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "shine": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,6 +126,7 @@ export default {
         "particle-float": "particle-float 8s ease-in-out infinite",
         "fade-in": "fade-in 0.6s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
+        "shine": "shine 2s linear infinite",
       },
     },
   },

@@ -1,22 +1,16 @@
 import { ParticleBackground } from '@/components/ParticleBackground';
-import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Founder } from '@/components/Founder';
-import { Architecture } from '@/components/Architecture';
-import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
-const Index = () => {
+const Sobre = () => {
   return (
     <div className="relative min-h-screen">
       <ParticleBackground />
       
       <main className="relative z-10">
-        <Hero />
         <About />
         <Founder />
-        <Architecture />
-        <Contact />
       </main>
 
       <Footer />
@@ -24,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Sobre;

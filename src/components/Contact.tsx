@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -24,19 +24,13 @@ export const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contato@neutrino.tech',
-      href: 'mailto:contato@neutrino.tech',
-    },
-    {
-      icon: Phone,
-      label: 'Telefone',
-      value: '+55 (11) 9999-9999',
-      href: 'tel:+5511999999999',
+      value: 'neutrino@neutrino.dev.br',
+      href: 'mailto:neutrino@neutrino.dev.br',
     },
     {
       icon: MapPin,
       label: 'Localização',
-      value: 'São Paulo, Brasil',
+      value: 'Curitiba, Paraná',
       href: '#',
     },
   ];
@@ -146,7 +140,7 @@ export const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-orbitron font-semibold rounded-xl transition-all duration-300 cosmic-glow"
+                className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-orbitron font-semibold rounded-xl transition-all duration-300"
               >
                 Enviar Mensagem
               </Button>

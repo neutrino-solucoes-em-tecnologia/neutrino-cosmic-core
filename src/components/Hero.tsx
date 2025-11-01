@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export const Hero = () => {
-  const scrollToEcosystem = () => {
-    document.getElementById('ecosystem')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -40,24 +36,22 @@ export const Hero = () => {
           className="mb-8"
         >
           <div className="inline-block relative">
-            <h1 className="text-6xl md:text-8xl font-orbitron font-black tracking-tight mb-4 cosmic-glow">
-              <span className="bg-gradient-to-r from-primary-glow via-secondary to-quantum-glow bg-clip-text text-transparent">
-                NEUTRINO
-              </span>
-            </h1>
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-secondary/20 to-quantum/20 rounded-full blur-2xl -z-10 animate-pulse-glow" />
+            <div className="flex items-start gap-2 mb-4 justify-start">
+              {/* Barra vertical - altura exata dos textos */}
+              <div className="w-2 bg-white rounded-full self-stretch"></div>
+              
+              {/* Textos */}
+              <div className="flex flex-col items-start text-left">
+                <h1 className="text-4xl md:text-6xl font-tt-hoves font-black tracking-tight text-white leading-none text-left">
+                  neutrino
+                </h1>
+                <p className="text-xs md:text-sm font-tt-hoves font-medium text-white tracking-wider leading-none -mt-1 text-left uppercase">
+                  tecnologia e inovação
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground mb-3 font-inter"
-        >
-          Soluções em Tecnologia
-        </motion.p>
 
         {/* Main Headline */}
         <motion.h2
@@ -66,7 +60,7 @@ export const Hero = () => {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="text-3xl md:text-5xl font-orbitron font-bold mb-6 max-w-4xl mx-auto px-4"
         >
-          O núcleo que move o universo da tecnologia
+          Construindo o futuro através da tecnologia
         </motion.h2>
 
         {/* Description */}
@@ -74,26 +68,33 @@ export const Hero = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto px-4 font-inter"
+          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4 font-inter"
         >
-          Ecossistema inteligente de soluções que conectam inovação, pessoas e propósito
+          Holding tecnológica que acelera a inovação global através de um portfólio estratégico de empresas disruptivas
         </motion.p>
 
-        {/* CTA */}
+        {/* Stats */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
+          className="flex flex-wrap justify-center gap-8 mb-12 px-4"
         >
-          <Button
-            onClick={scrollToEcosystem}
-            size="lg"
-            className="group relative overflow-hidden bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-6 text-lg font-orbitron font-semibold rounded-xl transition-all duration-300 cosmic-glow"
-          >
-            <span className="relative z-10">Explorar o Universo</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-glow to-quantum opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </Button>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">R$ 2.5B+</div>
+            <div className="text-sm text-muted-foreground font-inter">Valor de Portfólio</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">15+</div>
+            <div className="text-sm text-muted-foreground font-inter">Empresas do Grupo</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">1M+</div>
+            <div className="text-sm text-muted-foreground font-inter">Vidas Impactadas</div>
+          </div>
         </motion.div>
+
+
 
         {/* Orbital Rings */}
         <div className="absolute inset-0 -z-20 pointer-events-none">
