@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#001122;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#000814;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Central glow -->
+    <radialGradient id="centralGlow" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#0099CC;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#003366;stop-opacity:0.1" />
+    </radialGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Pipe gradient -->
+    <linearGradient id="pipeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Particle glow -->
+    <radialGradient id="particleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0066CC;stop-opacity:0.4" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Central glow effect -->
+  <ellipse cx="600" cy="315" rx="400" ry="200" fill="url(#centralGlow)"/>
+  
+  <!-- Particle effects in background -->
+  <circle cx="200" cy="150" r="3" fill="url(#particleGlow)" opacity="0.6"/>
+  <circle cx="1000" cy="180" r="2" fill="#00D9FF" opacity="0.4"/>
+  <circle cx="150" cy="400" r="2.5" fill="#0099CC" opacity="0.5"/>
+  <circle cx="1050" cy="450" r="2" fill="#00FFFF" opacity="0.3"/>
+  <circle cx="300" cy="500" r="1.5" fill="#00D9FF" opacity="0.7"/>
+  <circle cx="900" cy="100" r="2" fill="#0066CC" opacity="0.5"/>
+  <circle cx="100" cy="250" r="1.8" fill="#00FFFF" opacity="0.4"/>
+  <circle cx="1100" cy="350" r="2.2" fill="#0099CC" opacity="0.6"/>
+  
+  <!-- Main logo container -->
+  <g transform="translate(350, 220)">
+    <!-- Pipe (vertical bar) -->
+    <rect x="0" y="0" width="12" height="140" rx="6" fill="url(#pipeGradient)"/>
+    
+    <!-- Main neutrino text -->
+    <text x="40" y="80" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="url(#textGradient)" letter-spacing="-2px">neutrino</text>
+    
+    <!-- Subtitle -->
+    <text x="40" y="110" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#CCCCCC" letter-spacing="3px" text-transform="uppercase">tecnologia e inovação</text>
+  </g>
+  
+  <!-- Company description -->
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="28" font-weight="300" fill="#AAAAAA" text-anchor="middle">Empresa tecnológica que acelera a inovação global</text>
+  
+  <!-- Value proposition -->
+  <text x="600" y="490" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#00D9FF" text-anchor="middle">Portfólio R$ 2.5B • 15+ Empresas do Ecossistema</text>
+  
+  <!-- Subtle orbital elements around the logo -->
+  <g opacity="0.3">
+    <circle cx="320" cy="250" r="1" fill="#00FFFF">
+      <animateTransform attributeName="transform" type="rotate" values="0 400 290;360 400 290" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="350" r="1.5" fill="#0099CC">
+      <animateTransform attributeName="transform" type="rotate" values="180 400 290;540 400 290" dur="25s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="200" r="1.2" fill="#00D9FF">
+      <animateTransform attributeName="transform" type="rotate" values="90 400 290;450 400 290" dur="30s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Border glow effect -->
+  <rect x="2" y="2" width="1196" height="626" fill="none" stroke="url(#particleGlow)" stroke-width="2" rx="8" opacity="0.2"/>
+</svg>
