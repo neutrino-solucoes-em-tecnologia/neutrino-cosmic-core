@@ -36,7 +36,7 @@ export const Contact = () => {
   ];
 
   return (
-    <section className="relative py-32 px-4 md:px-8 overflow-hidden">
+    <section id="contact" className="relative py-32 px-4 md:px-8 overflow-hidden">
       {/* Pulsing Background */}
       <motion.div
         animate={{

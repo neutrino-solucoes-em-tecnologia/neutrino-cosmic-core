@@ -1,31 +1,24 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, Twitter, Instagram } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-  ];
+
 
   const footerLinks = [
     {
       title: 'Empresa',
       links: [
-        { name: 'Sobre', href: '#about' },
+        { name: 'Sobre', href: '/sobre' },
         { name: 'Ecossistema', href: '/ecossistema' },
-        { name: 'Tecnologia', href: '#technology' },
-        { name: 'Equipe', href: '#team' },
       ],
     },
     {
       title: 'Legal',
       links: [
-        { name: 'Privacidade', href: '#' },
-        { name: 'Termos de Uso', href: '#' },
-        { name: 'Cookies', href: '#' },
+        { name: 'Privacidade', href: '/privacidade' },
+        { name: 'Cookies', href: '/cookies' },
       ],
     },
     {
@@ -82,19 +75,7 @@ export const Footer = () => {
                 Transformando complexidade em fluidez tecnológica.
               </p>
               
-              {/* Social Links */}
-              <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                  >
-                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
-                  </a>
-                ))}
-              </div>
+
             </motion.div>
           </div>
 
@@ -121,6 +102,31 @@ export const Footer = () => {
                     </a>
                   </li>
                 ))}
+                {section.title === 'Contato' && (
+                  <li className="flex gap-4 mt-4">
+                    <a
+                      href="#"
+                      aria-label="LinkedIn"
+                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+                    >
+                      <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="Twitter"
+                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+                    >
+                      <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="Instagram"
+                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+                    >
+                      <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
+                    </a>
+                  </li>
+                )}
               </ul>
             </motion.div>
           ))}
@@ -138,13 +144,13 @@ export const Footer = () => {
           className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-inter"
         >
           <p>
-            © {currentYear} Neutrino Holdings Inc. Todos os direitos reservados.
+            © {currentYear} Neutrino Soluções em Tecnologia. Todos os direitos reservados.
           </p>
           
           <div className="flex flex-wrap gap-4 text-xs">
-            <span>B3: NTNO3</span>
+            <span>Curitiba, PR</span>
             <span>•</span>
-            <span>Valor de Mercado: R$ 2,5B</span>
+            <span>Valor de Portfólio: R$ 2,5B</span>
             <span>•</span>
             <span>Operações Globais</span>
           </div>

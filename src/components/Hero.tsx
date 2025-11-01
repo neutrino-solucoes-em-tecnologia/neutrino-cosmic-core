@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 export const Hero = () => {
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Central Nucleus */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -70,7 +70,7 @@ export const Hero = () => {
           transition={{ delay: 1.1, duration: 0.8 }}
           className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4 font-inter"
         >
-          Holding tecnológica que acelera a inovação global através de um portfólio estratégico de empresas disruptivas
+          Empresa tecnológica que acelera a inovação global através de um portfólio estratégico de empresas disruptivas
         </motion.p>
 
         {/* Stats */}

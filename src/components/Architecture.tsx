@@ -41,7 +41,7 @@ export const Architecture = () => {
   ];
 
   return (
-    <section className="relative py-32 px-4 md:px-8 overflow-hidden">
+    <section id="architecture" className="relative py-32 px-4 md:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

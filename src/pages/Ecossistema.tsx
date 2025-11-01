@@ -1,3 +1,4 @@
+import { Navigation } from '@/components/Navigation';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { Footer } from '@/components/Footer';
 import { motion } from 'framer-motion';
@@ -109,11 +110,12 @@ const Ecossistema = () => {
 
   return (
     <div className="relative min-h-screen">
+      <Navigation />
       <ParticleBackground />
       
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
