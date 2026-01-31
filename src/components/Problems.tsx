@@ -32,12 +32,12 @@ export const Problems = () => {
             Problemas Reais
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 sm:mb-8 leading-tight">
-            Para quem trabalhamos
+            Trabalhamos com empresas que enfrentam estes desafios
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            Empresas onde sistemas instáveis custam milhões. Onde vulnerabilidades não são 
-            teóricas. Onde downtime significa perda de receita, credibilidade e clientes. 
-            Se o problema é crítico, nós resolvemos.
+            Se você está lidando com sistemas onde instabilidade significa perda de receita, 
+            vulnerabilidades têm impacto regulatório, ou downtime paralisa operações — 
+            já resolvemos problemas similares.
           </p>
         </div>
 

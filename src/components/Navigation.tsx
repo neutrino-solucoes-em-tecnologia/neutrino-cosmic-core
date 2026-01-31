@@ -18,10 +18,10 @@ export const Navigation = () => {
 
   const navItems = [
     { name: 'Problemas', href: '#problems' },
+    { name: 'Cases', href: '#cases' },
     { name: 'Soluções', href: '#solutions' },
-    { name: 'Metodologia', href: '#methodology' },
-    { name: 'Tecnologias', href: '#tech' },
-    { name: 'Por Quê', href: '#why' },
+    { name: 'Processo', href: '#process' },
+    { name: 'Equipe', href: '#team' },
     { name: 'Contato', href: '#contact' },
   ];
 

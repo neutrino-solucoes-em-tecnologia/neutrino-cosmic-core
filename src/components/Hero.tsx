@@ -17,15 +17,15 @@ export const Hero = () => {
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight max-w-5xl">
-            Tecnologia não é sobre ferramentas.
-            <br className="hidden md:block" />
-            É sobre resolver problemas que não podem falhar.
+            Sistemas mission-critical precisam de engenharia mission-critical.
+            <br className="hidden sm:block" />
+            Sabemos fazer isso.
           </h1>
 
           {/* Supporting Text */}
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mb-8 sm:mb-10 md:mb-12 leading-[1.6] sm:leading-[1.7]">
-            Arquitetura de software, segurança e escalabilidade para sistemas mission-critical. 
-            Quando a falha não é uma opção.
+            Arquitetura, segurança e escalabilidade para sistemas onde downtime custa dinheiro real. 
+            Trabalhamos com empresas que precisam de parceiros técnicos, não fornecedores.
           </p>
 
           {/* CTA */}
@@ -35,16 +35,16 @@ export const Hero = () => {
               onClick={scrollToContact}
               className="text-sm px-8 h-12 bg-foreground hover:bg-foreground/90 text-background rounded font-semibold group transition-all"
             >
-              Vamos resolver o problema certo
+              Vamos conversar sobre seu desafio
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              onClick={() => document.getElementById('problems')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-sm px-8 h-12 border border-gray-300 hover:border-gray-900 hover:bg-gray-50 rounded font-semibold transition-all"
+              onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm px-6 sm:px-8 h-11 sm:h-12 border border-gray-300 hover:border-gray-900 hover:bg-gray-50 rounded font-semibold transition-all"
             >
-              Conheça Nosso Trabalho
+              Ver Projetos Reais
             </Button>
           </div>
 
@@ -65,13 +65,13 @@ export const Hero = () => {
             
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight">100</span>
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-400">%</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight">99.9</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-400">%+</span>
               </div>
               <div className="space-y-2">
-                <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Uptime em Produção</div>
+                <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Uptime Médio</div>
                 <div className="text-sm text-gray-500 leading-relaxed">
-                  Disponibilidade garantida sem downtime
+                  {'< 4h'} downtime/ano em sistemas críticos
                 </div>
               </div>
             </div>

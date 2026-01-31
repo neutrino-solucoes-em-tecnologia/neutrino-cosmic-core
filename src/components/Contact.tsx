@@ -33,7 +33,7 @@ export const Contact = () => {
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 md:mb-12 leading-[1.6] sm:leading-[1.7]">
               Não vendemos soluções prontas. Ouvimos o problema, analisamos o contexto, 
-              e propomos arquitetura sob medida.
+              e propomos arquitetura sob medida. Podemos conectar você com CTOs que já trabalharam conosco.
             </p>
 
             <div className="space-y-6">

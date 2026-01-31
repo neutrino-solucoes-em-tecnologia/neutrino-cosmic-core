@@ -30,7 +30,7 @@ export const WhyNeutrino = () => {
             Por Que a Neutrino
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
-            Porque o problema não é falta de código. É falta de quem entenda o problema.
+            O diferencial não é só código. É entender o impacto do problema.
           </h2>
         </div>
 
