@@ -35,17 +35,17 @@ export const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="relative py-32 px-6 md:px-12 bg-white">
+    <section id="solutions" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-4xl mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-8">
+        <div className="max-w-4xl mb-12 sm:mb-16 md:mb-20">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
             O Que Fazemos
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
             Engenharia que resolve, não improvisa
           </h2>
-          <div className="space-y-4">
-            <p className="text-lg md:text-xl text-gray-600 leading-[1.7]">
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-[1.6] sm:leading-[1.7]">
               A Neutrino atua como parceiro tecnológico em cenários onde a complexidade 
               exige experiência profunda, visão arquitetural e execução impecável.
             </p>
@@ -56,7 +56,7 @@ export const Solutions = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {solutions.map((solution, index) => (
             <div 
               key={solution.title} 

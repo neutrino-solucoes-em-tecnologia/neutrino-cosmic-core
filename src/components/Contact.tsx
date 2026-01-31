@@ -20,18 +20,18 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 px-6 md:px-12 bg-white border-t border-gray-200">
+    <section id="contact" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20">
           {/* Left Column - Info */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
               Contato
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
               Explique o problema. A tecnologia vem depois.
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-12 leading-[1.7]">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 md:mb-12 leading-[1.6] sm:leading-[1.7]">
               Não vendemos soluções prontas. Ouvimos o problema, analisamos o contexto, 
               e propomos arquitetura sob medida.
             </p>

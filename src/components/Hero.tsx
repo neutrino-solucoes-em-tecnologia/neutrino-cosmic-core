@@ -8,7 +8,7 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full py-16 sm:py-20 md:py-32">
         <div className="w-full">
           {/* Eyebrow */}
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-8">
@@ -16,20 +16,20 @@ export const Hero = () => {
           </p>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight max-w-5xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight max-w-5xl">
             Tecnologia não é sobre ferramentas.
             <br className="hidden md:block" />
             É sobre resolver problemas que não podem falhar.
           </h1>
 
           {/* Supporting Text */}
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mb-12 leading-[1.7]">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mb-8 sm:mb-10 md:mb-12 leading-[1.6] sm:leading-[1.7]">
             Arquitetura de software, segurança e escalabilidade para sistemas mission-critical. 
             Quando a falha não é uma opção.
           </p>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-24">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-16 sm:mb-20 md:mb-24">
             <Button 
               size="lg" 
               onClick={scrollToContact}
@@ -49,11 +49,11 @@ export const Hero = () => {
           </div>
 
           {/* Stats - Technical Focus */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 pt-20 mt-4 border-t border-gray-200 max-w-5xl">
-            <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-10 sm:gap-y-0 pt-12 sm:pt-16 md:pt-20 mt-4 border-t border-gray-200 max-w-5xl">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">15</span>
-                <span className="text-2xl md:text-3xl font-bold text-gray-400">+</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight">15</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-400">+</span>
               </div>
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Anos de Experiência</div>
@@ -63,10 +63,10 @@ export const Hero = () => {
               </div>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">100</span>
-                <span className="text-2xl md:text-3xl font-bold text-gray-400">%</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight">100</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-400">%</span>
               </div>
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Uptime em Produção</div>
@@ -76,10 +76,10 @@ export const Hero = () => {
               </div>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">24</span>
-                <span className="text-2xl md:text-3xl font-bold text-gray-400">/7</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight">24</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-400">/7</span>
               </div>
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Suporte Técnico</div>

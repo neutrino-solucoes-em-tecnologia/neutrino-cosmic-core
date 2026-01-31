@@ -25,16 +25,16 @@ export const Problems = () => {
   ];
 
   return (
-    <section id="problems" className="relative py-32 px-6 md:px-12 bg-gray-50">
+    <section id="problems" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-20">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">
+        <div className="max-w-3xl mb-12 sm:mb-16 md:mb-20">
+          <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4 sm:mb-6">
             Problemas Reais
           </p>
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 sm:mb-8 leading-tight">
             Para quem trabalhamos
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
             Empresas onde sistemas instáveis custam milhões. Onde vulnerabilidades não são 
             teóricas. Onde downtime significa perda de receita, credibilidade e clientes. 
             Se o problema é crítico, nós resolvemos.

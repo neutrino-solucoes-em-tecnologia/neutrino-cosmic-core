@@ -104,22 +104,22 @@ export const TechStack = () => {
   };
 
   return (
-    <section id="tech" className="relative py-32 px-6 md:px-12 bg-white">
+    <section id="tech" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-4xl mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-8">
+        <div className="max-w-4xl mb-12 sm:mb-16 md:mb-20">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
             Stack Tecnológico
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
             Ferramentas escolhidas por maturidade, não por novidade
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-[1.7]">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-[1.6] sm:leading-[1.7]">
             Não corremos atrás de tendências. Usamos tecnologias consolidadas, 
             com comunidade ativa, documentação sólida e cases de produção comprovados.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
           {Object.entries(technologies).map(([category, items]) => (
             <div key={category} className="space-y-6">
               <h3 className="text-sm font-bold text-foreground uppercase tracking-wider border-b border-gray-200 pb-4">
