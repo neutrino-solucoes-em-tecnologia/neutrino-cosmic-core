@@ -197,14 +197,6 @@ export const Cases = () => {
           ))}
         </div>
 
-        {/* Nota de Verificação */}
-        <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-gray-50 border border-gray-200">
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            <strong className="text-foreground">Quer validar essas referências?</strong> Conectamos você com líderes técnicos 
-            que trabalharam conosco nos 5 projetos acima (com NDA se necessário). Contato no final da página.
-          </p>
-        </div>
-
         {/* Cooperações Técnicas */}
         <div className="mt-12 sm:mt-16 md:mt-20">
           <div className="max-w-4xl mb-8 sm:mb-12">
