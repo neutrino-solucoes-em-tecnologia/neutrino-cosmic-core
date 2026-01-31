@@ -1,0 +1,353 @@
+{
+	"info": {
+        "_postman_id": "person-monitoring-type-notifications-collection-v1",
+		"name": "16 - Person Monitoring Type Notifications",
+		"description": "Person Monitoring Type Notifications endpoints: List, Show, Create, Update, Delete, Restore, ForceDelete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All Person Monitoring Type Notifications",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications?per_page=15&page=1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications"],
+					"query": [
+						{
+							"key": "per_page",
+							"value": "15",
+							"description": "Items per page"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page number"
+						},
+						{
+							"key": "search",
+							"value": "",
+							"description": "Search term",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"description": "Filter by client ID",
+							"disabled": true
+						},
+						{
+							"key": "notification_channel",
+							"value": "PUSH",
+							"description": "Filter by channel (PUSH, SMS, WHATSAPP, EMAIL)",
+							"disabled": true
+						},
+						{
+							"key": "is_active",
+							"value": "true",
+							"description": "Filter by active status",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "created_at",
+							"description": "Sort field",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "desc",
+							"description": "Sort order (asc, desc)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Retrieve paginated list of notification templates with optional filters"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Person Monitoring Type Notification",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications/{{notification_uuid}}",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications", "{{notification_uuid}}"]
+				},
+				"description": "Get detailed information about a specific notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Monitoring Type Notification - PUSH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Person Detection Push Alert\",\n  \"description\": \"Push notification template for person detection alerts\",\n  \"client_id\": 1,\n  \"notification_channel\": \"PUSH\",\n  \"message_template\": \"Alert: Person {{name}} detected at {{location}} on {{timestamp}}\",\n  \"configuration\": {\n    \"sender_name\": \"CCONet Security\",\n    \"template_id\": \"push_template_01\",\n    \"priority\": \"high\",\n    \"badge_count\": 1\n  },\n  \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Create new PUSH notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Monitoring Type Notification - SMS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Person Detection SMS Alert\",\n  \"description\": \"SMS notification template for person detection\",\n  \"client_id\": 1,\n  \"notification_channel\": \"SMS\",\n  \"message_template\": \"SMS Alert: Person {{name}} detected. Document: {{document}}\",\n  \"configuration\": {\n    \"sender_name\": \"CCONet\",\n    \"from_number\": \"+5511999999999\",\n    \"max_length\": 160\n  },\n  \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Create new SMS notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Monitoring Type Notification - WhatsApp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Person Detection WhatsApp Alert\",\n  \"description\": \"WhatsApp notification template for person detection\",\n  \"client_id\": 1,\n  \"notification_channel\": \"WHATSAPP\",\n  \"message_template\": \"WhatsApp Alert:\\nPerson: {{name}}\\nDocument: {{document}}\\nLocation: {{location}}\\nTime: {{timestamp}}\",\n  \"configuration\": {\n    \"sender_name\": \"CCONet Security\",\n    \"template_id\": \"whatsapp_alert_template\",\n    \"from_number\": \"+5511988888888\",\n    \"enable_preview\": true\n  },\n  \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Create new WhatsApp notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Monitoring Type Notification - Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Person Detection Email Alert\",\n  \"description\": \"Email notification template for person detection alerts\",\n  \"client_id\": 1,\n  \"notification_channel\": \"EMAIL\",\n  \"message_template\": \"Dear Security Team,\\n\\nPerson {{name}} (Document: {{document}}) was detected at {{location}} on {{timestamp}}.\\n\\nBest regards,\\nCCONet Security System\",\n  \"configuration\": {\n    \"sender_name\": \"CCONet Security\",\n    \"from_email\": \"security@cconet.com\",\n    \"subject\": \"Person Detection Alert - {{name}}\",\n    \"template_id\": \"email_alert_template\"\n  },\n  \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Create new Email notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person Monitoring Type Notification",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications/{{notification_uuid}}",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications", "{{notification_uuid}}"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Alert Template\",\n  \"description\": \"Updated description for notification template\",\n  \"notification_channel\": \"PUSH\",\n  \"message_template\": \"Updated Alert: {{name}} at {{location}}\",\n  \"configuration\": {\n    \"sender_name\": \"CCONet Security Updated\",\n    \"priority\": \"medium\"\n  },\n  \"is_active\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Update existing notification template (cannot change client_id or uuid)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person Monitoring Type Notification (Soft)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications/{{notification_uuid}}",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications", "{{notification_uuid}}"]
+				},
+				"description": "Soft delete notification template (prevents deletion if in use by monitoring types)"
+			},
+			"response": []
+		},
+		{
+			"name": "Restore Person Monitoring Type Notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications/{{notification_uuid}}/restore",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications", "{{notification_uuid}}", "restore"]
+				},
+				"description": "Restore previously soft deleted notification template"
+			},
+			"response": []
+		},
+		{
+			"name": "Force Delete Person Monitoring Type Notification",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/person-monitoring-type-notifications/{{notification_uuid}}/force",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "person-monitoring-type-notifications", "{{notification_uuid}}", "force"]
+				},
+				"description": "Permanently delete notification template (prevents deletion if referenced by any monitoring types)"
+			},
+			"response": []
+		}
+	]
+}

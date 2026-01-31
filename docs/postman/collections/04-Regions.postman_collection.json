@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "regions-collection-v1",
+    "name": "04 - Regions",
+    "description": "Brazilian Regions management - Full CRUD operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Regions",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions?per_page=15",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions"],
+          "query": [{"key": "per_page", "value": "15"}]
+        }
+      }
+    },
+    {
+      "name": "Show Region",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Create Region",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"ibge_id\": 1,\n    \"code\": \"N\",\n    \"name\": \"Norte\",\n    \"name_en\": \"North\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions"]
+        }
+      }
+    },
+    {
+      "name": "Update Region",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "PUT",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Updated Name\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Delete Region (Soft)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Restore Region",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions/:uuid/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions", ":uuid", "restore"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Force Delete Region",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/regions/:uuid/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "regions", ":uuid", "force"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000", "type": "string"}
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "info": {
+    "_postman_id": "persons-addresses-collection-v1",
+    "name": "14 - Persons Addresses",
+    "description": "Persons addresses management endpoints - Full CRUD operations for physical addresses",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Persons Addresses",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses?per_page=15&page=1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses"],
+          "query": [
+            {"key": "per_page", "value": "15"},
+            {"key": "page", "value": "1"},
+            {"key": "search", "value": "", "disabled": true},
+            {"key": "sort_by", "value": "created_at", "disabled": true},
+            {"key": "sort_order", "value": "desc", "disabled": true},
+            {"key": "filter[person_id]", "value": "1", "disabled": true},
+            {"key": "filter[address_type]", "value": "RESIDENTIAL", "disabled": true},
+            {"key": "filter[city_id]", "value": "3550308", "disabled": true},
+            {"key": "filter[state_id]", "value": "35", "disabled": true},
+            {"key": "filter[is_primary]", "value": "true", "disabled": true}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Show Persons Address",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses/{{person_address_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses", "{{person_address_uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Create Persons Address",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"person_id\": 1,\n    \"address_type\": \"RESIDENTIAL\",\n    \"street\": \"Av. Paulista\",\n    \"number\": \"1000\",\n    \"complement\": \"Apto 101\",\n    \"neighborhood\": \"Bela Vista\",\n    \"postal_code\": \"01310-100\",\n    \"city_id\": 3550308,\n    \"state_id\": 35,\n    \"is_primary\": true,\n    \"latitude\": -23.561684,\n    \"longitude\": -46.655981,\n    \"notes\": \"Main residential address\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses"]
+        }
+      }
+    },
+    {
+      "name": "Update Persons Address",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "PUT",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"street\": \"Rua Augusta\",\n    \"number\": \"500\",\n    \"notes\": \"Updated address information\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses/{{person_address_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses", "{{person_address_uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Persons Address (Soft)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses/{{person_address_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses", "{{person_address_uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Restore Persons Address",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses/{{person_address_uuid}}/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses", "{{person_address_uuid}}", "restore"]
+        }
+      }
+    },
+    {
+      "name": "Force Delete Persons Address",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-addresses/{{person_address_uuid}}/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-addresses", "{{person_address_uuid}}", "force"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000", "type": "string"},
+    {"key": "person_address_uuid", "value": "", "type": "string"}
+  ]
+}

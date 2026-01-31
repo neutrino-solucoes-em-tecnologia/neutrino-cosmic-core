@@ -1,148 +1,96 @@
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Button } from './ui/button';
 
 export const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Central Nucleus */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center"
-      >
-        {/* Pulsing Glow Effect */}
-        <div className="absolute inset-0 -z-10">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="w-96 h-96 mx-auto rounded-full bg-primary/30 blur-3xl"
-          />
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full py-24 md:py-32">
+        <div className="w-full">
+          {/* Eyebrow */}
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-8">
+            Engenharia de Software de Alta Complexidade
+          </p>
 
-        {/* Logo/Title */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="mb-8"
-        >
-          <div className="inline-block relative">
-            <div className="flex items-start gap-2 mb-4 justify-start">
-              {/* Barra vertical - altura exata dos textos */}
-              <div className="w-2 bg-white rounded-full self-stretch"></div>
-              
-              {/* Textos */}
-              <div className="flex flex-col items-start text-left">
-                <h1 className="text-4xl md:text-6xl font-tt-hoves font-black tracking-tight text-white leading-none text-left">
-                  neutrino
-                </h1>
-                <p className="text-xs md:text-sm font-tt-hoves font-medium text-white tracking-wider leading-none -mt-1 text-left uppercase">
-                  tecnologia e inovação
-                </p>
+          {/* Main Headline */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.2] mb-8 tracking-tight max-w-5xl">
+            Tecnologia não é sobre ferramentas.
+            <br className="hidden md:block" />
+            É sobre resolver problemas que não podem falhar.
+          </h1>
+
+          {/* Supporting Text */}
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mb-12 leading-[1.7]">
+            Arquitetura de software, segurança e escalabilidade para sistemas mission-critical. 
+            Quando a falha não é uma opção.
+          </p>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-24">
+            <Button 
+              size="lg" 
+              onClick={scrollToContact}
+              className="text-sm px-8 h-12 bg-foreground hover:bg-foreground/90 text-background rounded font-semibold group transition-all"
+            >
+              Vamos resolver o problema certo
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => document.getElementById('problems')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm px-8 h-12 border border-gray-300 hover:border-gray-900 hover:bg-gray-50 rounded font-semibold transition-all"
+            >
+              Conheça Nosso Trabalho
+            </Button>
+          </div>
+
+          {/* Stats - Technical Focus */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 pt-20 mt-4 border-t border-gray-200 max-w-5xl">
+            <div className="space-y-4">
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">15</span>
+                <span className="text-2xl md:text-3xl font-bold text-gray-400">+</span>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Anos de Experiência</div>
+                <div className="text-sm text-gray-500 leading-relaxed">
+                  Sistemas de alta criticidade e larga escala
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">100</span>
+                <span className="text-2xl md:text-3xl font-bold text-gray-400">%</span>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Uptime em Produção</div>
+                <div className="text-sm text-gray-500 leading-relaxed">
+                  Disponibilidade garantida sem downtime
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">24</span>
+                <span className="text-2xl md:text-3xl font-bold text-gray-400">/7</span>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm font-semibold text-foreground uppercase tracking-wide">Suporte Técnico</div>
+                <div className="text-sm text-gray-500 leading-relaxed">
+                  Monitoramento contínuo e resposta imediata
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* Main Headline */}
-        <motion.h2
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-          className="text-3xl md:text-5xl font-orbitron font-bold mb-6 max-w-4xl mx-auto px-4"
-        >
-          Construindo o futuro através da tecnologia
-        </motion.h2>
-
-        {/* Description */}
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4 font-inter"
-        >
-          Empresa tecnológica que acelera a inovação global através de um portfólio estratégico de empresas disruptivas
-        </motion.p>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-8 mb-12 px-4"
-        >
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">R$ 2.5B+</div>
-            <div className="text-sm text-muted-foreground font-inter">Valor de Portfólio</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">15+</div>
-            <div className="text-sm text-muted-foreground font-inter">Empresas do Grupo</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">1M+</div>
-            <div className="text-sm text-muted-foreground font-inter">Vidas Impactadas</div>
-          </div>
-        </motion.div>
-
-
-
-        {/* Orbital Rings */}
-        <div className="absolute inset-0 -z-20 pointer-events-none">
-          {[1, 2, 3].map((ring) => (
-            <motion.div
-              key={ring}
-              animate={{
-                rotate: ring % 2 === 0 ? 360 : -360,
-              }}
-              transition={{
-                duration: 20 + ring * 10,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div
-                className={`border border-primary/10 rounded-full`}
-                style={{
-                  width: `${300 + ring * 150}px`,
-                  height: `${300 + ring * 150}px`,
-                }}
-              />
-            </motion.div>
-          ))}
         </div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <ChevronDown className="w-8 h-8 text-secondary" />
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -1,23 +1,25 @@
 import { Navigation } from '@/components/Navigation';
-import { ParticleBackground } from '@/components/ParticleBackground';
 import { Hero } from '@/components/Hero';
-import { About } from '@/components/About';
-import { Founder } from '@/components/Founder';
-import { Architecture } from '@/components/Architecture';
+import { Problems } from '@/components/Problems';
+import { Solutions } from '@/components/Solutions';
+import { Methodology } from '@/components/Methodology';
+import { TechStack } from '@/components/TechStack';
+import { WhyNeutrino } from '@/components/WhyNeutrino';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-white">
       <Navigation />
-      <ParticleBackground />
       
-      <main className="relative z-10">
+      <main className="relative">
         <Hero />
-        <About />
-        <Founder />
-        <Architecture />
+        <Problems />
+        <Solutions />
+        <Methodology />
+        <TechStack />
+        <WhyNeutrino />
         <Contact />
       </main>
 

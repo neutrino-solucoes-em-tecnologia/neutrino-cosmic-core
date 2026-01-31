@@ -1,110 +1,69 @@
-import { motion } from 'framer-motion';
-import { Target, Eye, Shield } from 'lucide-react';
+import { Shield, Zap, Globe, Lock } from 'lucide-react';
 
 export const About = () => {
-  const values = [
-    {
-      icon: Target,
-      title: 'Missão',
-      description: 'Acelerar a transformação tecnológica global através de investimentos estratégicos e gestão de portfólio de alto impacto',
-      color: 'text-secondary',
-    },
-    {
-      icon: Eye,
-      title: 'Visão',
-      description: 'Ser reconhecida como a holding tecnológica mais influente do mundo, moldando o futuro através da inovação disruptiva',
-      color: 'text-primary-glow',
-    },
+  const features = [
     {
       icon: Shield,
-      title: 'Valores',
-      description: 'Excelência operacional. Inovação disruptiva. Impacto global sustentável. Crescimento exponencial',
-      color: 'text-quantum-glow',
+      title: 'Enterprise Security',
+      description: 'Bank-grade security with SOC 2 Type II, PCI DSS Level 1, and ISO 27001 certifications. Your data is protected by industry-leading encryption.',
+    },
+    {
+      icon: Zap,
+      title: 'Lightning Fast',
+      description: 'Process millions of transactions per second with 99.99% uptime. Built on resilient infrastructure that scales with your business.',
+    },
+    {
+      icon: Globe,
+      title: 'Global Coverage',
+      description: 'Multi-currency support across 180+ countries. Compliant with local regulations and integrated with global payment networks.',
+    },
+    {
+      icon: Lock,
+      title: 'Regulatory Ready',
+      description: 'Full compliance with GDPR, PSD2, Open Banking standards. We handle the complexity so you can focus on growth.',
     },
   ];
 
   return (
-    <section id="about" className="relative py-32 px-4 md:px-8 overflow-hidden">
+    <section id="about" className="relative py-32 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
-            Liderança Global em Tecnologia
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-inter mb-8">
-            Holding tecnológica com portfólio diversificado de R$ 2.5 bilhões, operando através 
-            de 15+ empresas especializadas que transformam indústrias e impactam milhões de vidas globalmente.
-          </p>
-          
-          {/* Achievement highlights */}
-          <div className="flex flex-wrap justify-center gap-8 text-sm font-inter text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>Forbes Global 2000</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>Unicorn Portfolio Leader</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>B3 Listed Companies</span>
-            </div>
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">
+              About Neutrino
+            </p>
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
+              Banking infrastructure for the modern economy
+            </h2>
           </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {values.map((value, index) => (
-            <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="relative bg-card border border-border rounded-2xl p-8 h-full transition-all duration-300 hover:border-primary/50 shadow-card hover:shadow-glow">
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-orbital rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                
-                <div className="relative z-10">
-                  <div className={`inline-block p-4 rounded-xl bg-background/50 mb-6 ${value.color}`}>
-                    <value.icon className="w-8 h-8" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-orbitron font-bold mb-4">
-                    {value.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground font-inter leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <div className="space-y-6">
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Neutrino provides the complete banking infrastructure stack for fintech companies, 
+              marketplaces, and platforms looking to embed financial services.
+            </p>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Our APIs power payments, lending, accounts, and cards for thousands of businesses 
+              processing billions in transactions annually.
+            </p>
+          </div>
         </div>
 
-
-
-        {/* Energy Flow Animation */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 pointer-events-none -z-10">
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-              scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="w-full h-full border border-primary/10 rounded-full"
-          />
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {features.map((feature) => (
+            <div key={feature.title} className="space-y-4">
+              <div className="w-12 h-12 flex items-center justify-center">
+                <feature.icon className="w-8 h-8 text-foreground" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-bold text-foreground">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,164 +1,109 @@
-import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-
-
   const footerLinks = [
     {
-      title: 'Empresa',
+      title: 'Soluções',
       links: [
-        { name: 'Sobre', href: '/sobre' },
-        { name: 'Ecossistema', href: '/ecossistema' },
+        { name: 'Arquitetura', href: '#solutions' },
+        { name: 'Segurança', href: '#solutions' },
+        { name: 'Backend', href: '#solutions' },
+        { name: 'Infraestrutura', href: '#solutions' },
       ],
     },
     {
-      title: 'Legal',
+      title: 'Empresa',
       links: [
-        { name: 'Privacidade', href: '/privacidade' },
-        { name: 'Cookies', href: '/cookies' },
+        { name: 'Problemas', href: '#problems' },
+        { name: 'Metodologia', href: '#methodology' },
+        { name: 'Tecnologias', href: '#tech' },
+        { name: 'Por Quê', href: '#why' },
       ],
     },
     {
       title: 'Contato',
       links: [
-        { name: 'neutrino@neutrino.dev.br', href: 'mailto:neutrino@neutrino.dev.br' },
+        { name: 'Email', href: 'mailto:neutrino@neutrino.dev.br' },
+        { name: 'Telefone', href: 'tel:+5541999214248' },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/neutrino-solu%C3%A7%C3%B5es-em-tecnologia/' },
       ],
     },
   ];
 
+  const scrollToSection = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        const yOffset = -80;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <footer className="relative bg-gradient-to-b from-background to-card border-t border-border overflow-hidden">
-      {/* Particle Effect Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute w-1 h-1 bg-secondary rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand */}
+    <footer className="relative bg-gray-900 text-gray-300">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <h3 className="text-3xl font-bold text-white mb-4">neutrino</h3>
+            <p className="text-gray-400 leading-relaxed max-w-md mb-8 text-sm">
+              Engenharia de software de alta complexidade para sistemas que não podem falhar.
+            </p>
+            <a
+              href="https://www.linkedin.com/company/neutrino-solu%C3%A7%C3%B5es-em-tecnologia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded transition-colors text-sm font-medium"
             >
-              <h3 className="text-3xl font-orbitron font-black mb-4">
-                <span className="bg-gradient-to-r from-primary-glow via-secondary to-quantum-glow bg-clip-text text-transparent">
-                  NEUTRINO
-                </span>
-              </h3>
-              <p className="text-muted-foreground font-inter leading-relaxed mb-6 max-w-md">
-                O universo Neutrino — onde cada partícula é um propósito. 
-                Transformando complexidade em fluidez tecnológica.
-              </p>
-              
-
-            </motion.div>
+              <Linkedin className="w-4 h-4" />
+              Siga no LinkedIn
+            </a>
           </div>
 
-          {/* Links Sections */}
-          {footerLinks.map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-orbitron font-bold mb-4">
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
                 {section.title}
               </h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-secondary transition-colors font-inter"
-                    >
-                      {link.name}
-                    </a>
+                    {link.href.startsWith('#') ? (
+                      <button
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-sm text-gray-400 hover:text-white transition-colors text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
-                {section.title === 'Contato' && (
-                  <li className="flex gap-4 mt-4">
-                    <a
-                      href="#"
-                      aria-label="LinkedIn"
-                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                    >
-                      <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
-                    </a>
-                    <a
-                      href="#"
-                      aria-label="Twitter"
-                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                    >
-                      <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
-                    </a>
-                    <a
-                      href="#"
-                      aria-label="Instagram"
-                      className="p-3 bg-background/50 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                    >
-                      <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary-glow transition-colors" />
-                    </a>
-                  </li>
-                )}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
-
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-inter"
-        >
-          <p>
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-gray-500">
             © {currentYear} Neutrino Soluções em Tecnologia. Todos os direitos reservados.
           </p>
-          
-          <div className="flex flex-wrap gap-4 text-xs">
-            <span>Curitiba, PR</span>
-            <span>•</span>
-            <span>Valor de Portfólio: R$ 2,5B</span>
-            <span>•</span>
-            <span>Operações Globais</span>
-          </div>
-        </motion.div>
+          <p className="text-xs text-gray-500">
+            Curitiba, Paraná · Brasil
+          </p>
+        </div>
       </div>
-
-      {/* Glow Effect */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
     </footer>
   );
 };

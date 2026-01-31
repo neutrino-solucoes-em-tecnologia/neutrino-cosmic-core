@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "vehicle-type-aliases-collection-v1",
+    "name": "22 - Vehicle Type Aliases",
+    "description": "Vehicle Type Aliases endpoints: List, Show, Create, Update, Soft Delete, Restore, Force Delete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List All Vehicle Type Aliases",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases?per_page=15&page=1&sort=-created_at",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases"],
+          "query": [
+            {
+              "key": "per_page",
+              "value": "15",
+              "description": "Items per page (1-100)"
+            },
+            {
+              "key": "page",
+              "value": "1",
+              "description": "Page number"
+            },
+            {
+              "key": "search",
+              "value": "",
+              "disabled": true,
+              "description": "Search term for alias field"
+            },
+            {
+              "key": "sort",
+              "value": "-created_at",
+              "description": "Sort field (prefix with - for descending)"
+            },
+            {
+              "key": "filter[uuid]",
+              "value": "",
+              "disabled": true,
+              "description": "Filter by UUID"
+            },
+            {
+              "key": "filter[vehicle_type_id]",
+              "value": "",
+              "disabled": true,
+              "description": "Filter by vehicle type ID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Show Vehicle Type Alias",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases", ":uuid"],
+          "variable": [
+            {
+              "key": "uuid",
+              "value": "",
+              "description": "VehicleTypeAlias UUID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Vehicle Type Alias",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vehicle_type_id\": 1,\n  \"alias\": \"carro\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update Vehicle Type Alias",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases", ":uuid"],
+          "variable": [
+            {
+              "key": "uuid",
+              "value": "",
+              "description": "VehicleTypeAlias UUID"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alias\": \"automóvel\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Soft Delete Vehicle Type Alias",
+      "name": "Delete Vehicle Type Alias (Soft)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases", ":uuid"],
+          "variable": [
+            {
+              "key": "uuid",
+              "value": "",
+              "description": "VehicleTypeAlias UUID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Restore Vehicle Type Alias",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases/:uuid/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases", ":uuid", "restore"],
+          "variable": [
+            {
+              "key": "uuid",
+              "value": "",
+              "description": "VehicleTypeAlias UUID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Force Delete Vehicle Type Alias",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/vehicle-type-aliases/:uuid/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "vehicle-type-aliases", ":uuid", "force"],
+          "variable": [
+            {
+              "key": "uuid",
+              "value": "",
+              "description": "VehicleTypeAlias UUID"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

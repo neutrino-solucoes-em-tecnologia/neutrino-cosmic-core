@@ -1,0 +1,294 @@
+{
+  "info": {
+     "_postman_id": "person-alerts-collection-v1",
+    "name": "18 - Person Alerts",
+    "description": "Person Alerts endpoints: List, Show, Create, Update, Delete, Restore, Force Delete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List All Person Alerts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts?per_page=15&filter[alert_level]=HIGH&filter[alert_status]=ACTIVE&sort=-alert_date",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts"],
+          "query": [
+            {
+              "key": "per_page",
+              "value": "15",
+              "description": "Items per page (1-100)"
+            },
+            {
+              "key": "search",
+              "value": "security",
+              "description": "Search in title, description, location",
+              "disabled": true
+            },
+            {
+              "key": "filter[person_id]",
+              "value": "1",
+              "description": "Filter by person ID",
+              "disabled": true
+            },
+            {
+              "key": "filter[alert_level]",
+              "value": "HIGH",
+              "description": "LOW, MEDIUM, HIGH, CRITICAL"
+            },
+            {
+              "key": "filter[alert_status]",
+              "value": "ACTIVE",
+              "description": "ACTIVE, ACKNOWLEDGED, RESOLVED, DISMISSED"
+            },
+            {
+              "key": "sort",
+              "value": "-alert_date",
+              "description": "Sort by field (prefix - for desc)"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Show Person Alert",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Person Alert",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"person_id\": 1,\n  \"person_monitoring_type_id\": 1,\n  \"alert_level\": \"HIGH\",\n  \"alert_status\": \"ACTIVE\",\n  \"title\": \"Security Alert - Unauthorized Access Detected\",\n  \"description\": \"Suspicious activity detected at main entrance. Person matched against watchlist.\",\n  \"location\": \"Building A - Main Entrance\",\n  \"equipament_id\": \"CAM-001\",\n  \"photo_url\": \"https://example.com/captures/2026-01-22-133000.jpg\",\n  \"confidence_score\": 95.5,\n  \"metadata\": {\n    \"camera_angle\": 45,\n    \"detection_method\": \"facial\",\n    \"processing_time_ms\": 250\n  },\n  \"expires_at\": \"2026-02-22T13:30:00Z\",\n  \"alert_date\": \"2026-01-22T13:30:00Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Person Alert",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alert_level\": \"CRITICAL\",\n  \"alert_status\": \"ACKNOWLEDGED\",\n  \"title\": \"CRITICAL: Security Alert - Unauthorized Access Detected\",\n  \"description\": \"Updated: Immediate action required. Multiple access attempts detected.\",\n  \"location\": \"Building A - Main Entrance & Server Room\",\n  \"confidence_score\": 98.75\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Acknowledge Alert (Update Status)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alert_status\": \"ACKNOWLEDGED\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Resolve Alert (Update Status)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alert_status\": \"RESOLVED\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Person Alert (Soft)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Restore Person Alert",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}", "restore"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Force Delete Person Alert",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/person-alerts/{{person_alert_uuid}}/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "person-alerts", "{{person_alert_uuid}}", "force"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "colors-collection-v1",
+    "name": "29 - Colors",
+    "description": "Color management endpoints - Full CRUD operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List All Colors",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const response = pm.response.json();",
+              "    if (response.data && response.data.length > 0) {",
+              "        pm.environment.set('color_uuid', response.data[0].uuid);",
+              "        console.log('Saved color UUID: ' + response.data[0].uuid);",
+              "    }",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors?per_page=15&page=1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors"],
+          "query": [
+            {
+              "key": "per_page",
+              "value": "15",
+              "description": "Items per page (1-100)"
+            },
+            {
+              "key": "page",
+              "value": "1",
+              "description": "Page number"
+            },
+            {
+              "key": "search",
+              "value": "red",
+              "disabled": true,
+              "description": "Search in canonical_name or display_name"
+            },
+            {
+              "key": "sort_by",
+              "value": "canonical_name",
+              "disabled": true,
+              "description": "Sort field: canonical_name, display_name, created_at"
+            },
+            {
+              "key": "sort_direction",
+              "value": "asc",
+              "disabled": true,
+              "description": "Sort direction: asc or desc"
+            }
+          ]
+        },
+        "description": "Retrieve paginated list of colors with optional filters and sorting."
+      },
+      "response": []
+    },
+    {
+      "name": "Show Color",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors/{{color_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors", "{{color_uuid}}"]
+        },
+        "description": "Retrieve a single color by UUID."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Color",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 201) {",
+              "    const response = pm.response.json();",
+              "    pm.environment.set('color_uuid', response.data.uuid);",
+              "    console.log('Created color UUID: ' + response.data.uuid);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"canonical_name\": \"metallic-blue\",\n  \"display_name\": \"Metallic Blue\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors"]
+        },
+        "description": "Create a new color.\n\nRequired fields:\n- canonical_name: string, max 255, unique\n- display_name: string, max 255"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Color",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"canonical_name\": \"metallic-blue-updated\",\n  \"display_name\": \"Metallic Blue Updated\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors/{{color_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors", "{{color_uuid}}"]
+        },
+        "description": "Update an existing color.\n\nAll fields are optional:\n- canonical_name: string, max 255, unique\n- display_name: string, max 255"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Color (Soft)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors/{{color_uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors", "{{color_uuid}}"]
+        },
+        "description": "Soft delete a color (can be restored later).\n\nNote: Cannot delete if color is currently used by vehicles."
+      },
+      "response": []
+    },
+    {
+      "name": "Restore Color",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors/{{color_uuid}}/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors", "{{color_uuid}}", "restore"]
+        },
+        "description": "Restore a soft-deleted color.\n\nNote: Only works with soft-deleted colors."
+      },
+      "response": []
+    },
+    {
+      "name": "Force Delete Color",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/colors/{{color_uuid}}/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "colors", "{{color_uuid}}", "force"]
+        },
+        "description": "Permanently delete a color (cannot be restored).\n\nNote: Can force delete both active and soft-deleted colors. Cannot delete if referenced by any vehicles (including soft-deleted)."
+      },
+      "response": []
+    }
+  ]
+}

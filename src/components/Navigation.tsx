@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Navigation = () => {
@@ -17,16 +17,18 @@ export const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Início', href: '/' },
-    { name: 'Sobre', href: '/sobre' },
-    { name: 'Ecossistema', href: '/ecossistema' },
+    { name: 'Problemas', href: '#problems' },
+    { name: 'Soluções', href: '#solutions' },
+    { name: 'Metodologia', href: '#methodology' },
+    { name: 'Tecnologias', href: '#tech' },
+    { name: 'Por Quê', href: '#why' },
     { name: 'Contato', href: '#contact' },
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
     if (element) {
-      const yOffset = -80; // Offset para compensar a navbar fixa
+      const yOffset = -80;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -35,13 +37,15 @@ export const Navigation = () => {
 
   const handleNavClick = (href: string) => {
     if (href.startsWith('#')) {
-      if (href === '#contact') {
-        scrollToContact();
-      }
+      const sectionId = href.substring(1);
+      scrollToSection(sectionId);
+    } else if (href === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsOpen(false);
     } else {
       window.location.href = href;
+      setIsOpen(false);
     }
-    setIsOpen(false);
   };
 
   return (
@@ -51,36 +55,24 @@ export const Navigation = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-sm' 
+          : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.a
             href="/"
-            whileHover={{ scale: 1.05 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            whileHover={{ scale: 1.02 }}
             className="flex items-center gap-3 z-50"
           >
-            <div className="flex items-start gap-2">
-              {/* Barra vertical */}
-              <div className="w-1 h-8 bg-white rounded-full"></div>
-              
-              {/* Textos */}
-              <div className="flex flex-col items-start">
-                <span className="text-xl font-tt-hoves font-black tracking-tight text-white leading-none">
-                  neutrino
-                </span>
-                <span className="text-[10px] font-tt-hoves font-medium text-white/80 tracking-wide leading-none mt-0.5 uppercase">
-                  tecnologia e inovação
-                </span>
-              </div>
-            </div>
+            <span className="text-xl font-bold text-foreground tracking-tight">neutrino</span>
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
@@ -88,7 +80,7 @@ export const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 onClick={() => handleNavClick(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-300 font-inter font-medium text-sm uppercase tracking-wider"
+                className="text-sm font-medium text-gray-600 hover:text-foreground transition-colors duration-200"
               >
                 {item.name}
               </motion.button>
@@ -103,10 +95,9 @@ export const Navigation = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-inter font-semibold text-xs px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2"
-                onClick={() => window.open('https://www.linkedin.com/in/leonardo-lima-88a78b1b5/', '_blank')}
+                className="h-9 px-4 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-medium text-xs transition-all duration-200"
+                onClick={() => window.open('https://www.linkedin.com/company/neutrino-solu%C3%A7%C3%B5es-em-tecnologia/', '_blank')}
               >
-                <ExternalLink className="w-3 h-3" />
                 LinkedIn
               </Button>
             </motion.div>

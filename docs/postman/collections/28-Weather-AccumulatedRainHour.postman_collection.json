@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "weather-accumulated-rain-collection-v1",
+    "name": "28-Weather-AccumulatedRainHour",
+    "description": "Weather Accumulated Rain Hour endpoints: List, Show, Create, Update, Soft Delete, Restore, Force Delete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List All Accumulated Rain Hour Records",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain?per_page=15&page=1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain"],
+          "query": [
+            {
+              "key": "per_page",
+              "value": "15",
+              "description": "Records per page"
+            },
+            {
+              "key": "page",
+              "value": "1",
+              "description": "Page number"
+            },
+            {
+              "key": "search",
+              "value": "123",
+              "description": "Search by device_id",
+              "disabled": true
+            },
+            {
+              "key": "filter[device_id]",
+              "value": "123",
+              "description": "Filter by device ID",
+              "disabled": true
+            },
+            {
+              "key": "sort",
+              "value": "-date_time",
+              "description": "Sort field (- for descending)",
+              "disabled": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Show Accumulated Rain Hour Record",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain/{{uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain", "{{uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Create Accumulated Rain Hour Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"device_id\": 123,\n  \"date_time\": \"2026-01-26 10:00:00\",\n  \"hour_1\": 2.5,\n  \"hour_3\": 5.2,\n  \"hour_6\": 8.7,\n  \"hour_9\": 12.3,\n  \"hour_12\": 15.8,\n  \"hour_24\": 22.4,\n  \"hour_48\": 35.6,\n  \"hour_72\": 48.2,\n  \"hour_96\": 58.9\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain"]
+        }
+      }
+    },
+    {
+      "name": "Update Accumulated Rain Hour Record",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"device_id\": 456,\n  \"hour_1\": 10.5,\n  \"hour_24\": 30.2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain/{{uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain", "{{uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Accumulated Rain Hour Record (Soft)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain/{{uuid}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain", "{{uuid}}"]
+        }
+      }
+    },
+    {
+      "name": "Restore Accumulated Rain Hour Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain/{{uuid}}/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain", "{{uuid}}", "restore"]
+        }
+      }
+    },
+    {
+      "name": "Force Delete Accumulated Rain Hour Record",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/weather/accumulated-rain/{{uuid}}/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "weather", "accumulated-rain", "{{uuid}}", "force"]
+        }
+      }
+    }
+  ]
+}

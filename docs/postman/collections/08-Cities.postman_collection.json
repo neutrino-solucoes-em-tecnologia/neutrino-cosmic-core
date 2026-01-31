@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "cities-collection-v1",
+    "name": "08 - Cities",
+    "description": "Brazilian Cities (Municipalities) management - Full CRUD operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Cities",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities?per_page=15",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities"],
+          "query": [{"key": "per_page", "value": "15"}]
+        }
+      }
+    },
+    {
+      "name": "Show City",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Create City",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"ibge_id\": 3550308,\n    \"name\": \"São Paulo\",\n    \"name_en\": \"Sao Paulo\",\n    \"microregion_id\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities"]
+        }
+      }
+    },
+    {
+      "name": "Update City",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "PUT",
+        "header": [
+          {"key": "Accept", "value": "application/json"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Updated Name\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Delete City (Soft)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities/:uuid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities", ":uuid"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Restore City",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "POST",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities/:uuid/restore",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities", ":uuid", "restore"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    },
+    {
+      "name": "Force Delete City",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{auth_token}}", "type": "string"}]
+        },
+        "method": "DELETE",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {
+          "raw": "{{base_url}}/api/v1/cities/:uuid/force",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "cities", ":uuid", "force"],
+          "variable": [{"key": "uuid", "value": ""}]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000", "type": "string"}
+  ]
+}
