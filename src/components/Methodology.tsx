@@ -31,7 +31,7 @@ export const Methodology = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-quantum mb-6 sm:mb-8">
             Como Trabalhamos
           </p>
-          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
             Metodologia que prioriza resultado, não processo
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.6] sm:leading-[1.7]">

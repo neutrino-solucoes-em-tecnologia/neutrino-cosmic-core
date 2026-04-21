@@ -18,7 +18,7 @@ export const Problems = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-8">
               O Tipo de Problema que Resolvemos
             </p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
               Se chegou até aqui, provavelmente já tentou de tudo.
             </h2>
             <div className="w-10 h-[2px] bg-quantum mb-8" />
@@ -50,7 +50,7 @@ export const Problems = () => {
 
         {/* Closing statement */}
         <div className="mt-20 sm:mt-28 border-t border-border pt-14">
-          <p className="text-xl sm:text-2xl md:text-3xl font-fraunces font-bold text-foreground max-w-3xl leading-[1.3]">
+          <p className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground max-w-3xl leading-[1.3]">
             "Se o problema já saiu do nível técnico e chegou para liderança,
             é exatamente o tipo de engajamento que fazemos."
           </p>

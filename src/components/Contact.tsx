@@ -29,7 +29,7 @@ export const Contact = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-8">
               Avaliação de Fit
             </p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
               Descreva o problema.<br />
               Nós avaliamos se podemos ajudar.
             </h2>

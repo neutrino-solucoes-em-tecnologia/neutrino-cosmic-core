@@ -21,7 +21,7 @@ export const Hero = () => {
           </p>
 
           {/* Headline */}
-          <h1 className="font-fraunces text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight mb-8 sm:mb-10">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight mb-8 sm:mb-10">
             Quando a decisão arquitetural errada
             <br className="hidden sm:block" />
             <span className="text-quantum"> virou um problema de board.</span>

@@ -47,7 +47,7 @@ export const FAQ = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-8">
             Perguntas Diretas
           </p>
-          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] tracking-tight">
             Respostas sem evasiva.
           </h2>
         </motion.div>

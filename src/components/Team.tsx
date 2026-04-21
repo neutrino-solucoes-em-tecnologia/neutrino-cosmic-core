@@ -29,7 +29,7 @@ export const Team = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-8">
               Como Trabalhamos
             </p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-8">
               Não somos fornecedores. Somos os engenheiros que assumem o problema como se fosse nosso.
             </h2>
             <div className="w-10 h-[2px] bg-quantum" />

@@ -34,7 +34,7 @@ export const About = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-6 sm:mb-8">
               Sobre a Neutrino
             </p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] tracking-tight mb-6 sm:mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] tracking-tight mb-6 sm:mb-8">
               Nascemos para resolver o que outros evitam.
             </h2>
             <div className="w-12 h-[2px] bg-quantum mb-8 sm:mb-10" />

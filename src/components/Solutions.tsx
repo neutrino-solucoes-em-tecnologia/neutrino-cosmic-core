@@ -41,7 +41,7 @@ export const Solutions = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quantum mb-8">
             Especialidades
           </p>
-          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15] mb-6 tracking-tight">
             Profundidade onde a maioria fica na superfície.
           </h2>
           <p className="text-lg text-muted-foreground leading-[1.7]">
