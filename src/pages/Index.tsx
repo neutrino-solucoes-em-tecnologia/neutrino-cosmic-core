@@ -3,27 +3,23 @@ import { Hero } from '@/components/Hero';
 import { Problems } from '@/components/Problems';
 import { Cases } from '@/components/Cases';
 import { Solutions } from '@/components/Solutions';
-import { Process } from '@/components/Process';
 import { Team } from '@/components/Team';
-import { TechStack } from '@/components/TechStack';
-import { WhyNeutrino } from '@/components/WhyNeutrino';
+import { FAQ } from '@/components/FAQ';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="relative">
         <Hero />
         <Problems />
         <Cases />
         <Solutions />
-        <Process />
         <Team />
-        <TechStack />
-        <WhyNeutrino />
+        <FAQ />
         <Contact />
       </main>
 

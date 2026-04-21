@@ -39,55 +39,55 @@ export const TechStack = () => {
   ];
 
   return (
-    <section id="tech" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white">
+    <section id="tech" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mb-12 sm:mb-16 md:mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-quantum mb-6 sm:mb-8">
             Competências Core
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
+          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
             Onde somos especialistas profundos
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-[1.6] sm:leading-[1.7]">
-            Ao invés de listar 60 tecnologias, focamos nas 6 áreas onde temos experiência comprovada 
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.6] sm:leading-[1.7]">
+            Ao invés de listar 60 tecnologias, focamos nas 6 áreas onde temos experiência comprovada
             em produção, com métricas reais e clientes que podem confirmar.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {coreCompetencies.map((competency, index) => (
-            <div 
+            <div
               key={index}
-              className="group bg-gray-50 border border-gray-200 hover:border-gray-900 transition-all duration-300 hover:shadow-lg"
+              className="group bg-background border border-border hover:border-quantum/40 transition-all duration-300"
             >
               <div className="p-6 sm:p-8 space-y-4">
                 <div className="flex items-start justify-between">
                   <h3 className="text-lg sm:text-xl font-bold text-foreground leading-tight">
                     {competency.title}
                   </h3>
-                  <span className="text-xs font-bold text-gray-300 group-hover:text-gray-900 transition-colors">
+                  <span className="text-xs font-bold text-muted-foreground/40 group-hover:text-quantum transition-colors">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
 
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {competency.description}
                 </p>
 
-                <div className="pt-4 border-t border-gray-200">
+                <div className="pt-4 border-t border-border">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {competency.stack.map((tech) => (
-                      <span 
+                      <span
                         key={tech}
-                        className="px-2 py-1 bg-white border border-gray-200 text-xs text-gray-600 rounded"
+                        className="px-2 py-1 bg-secondary border border-border text-xs text-muted-foreground rounded"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                   <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 flex-shrink-0" />
-                    <p className="text-xs font-semibold text-gray-700">
+                    <div className="w-1.5 h-1.5 rounded-full bg-quantum mt-2 flex-shrink-0" />
+                    <p className="text-xs font-semibold text-quantum">
                       {competency.metrics}
                     </p>
                   </div>
@@ -99,13 +99,11 @@ export const TechStack = () => {
 
         {/* Closing Statement */}
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="bg-foreground text-background p-6 sm:p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-1 h-full bg-gray-400"></div>
-            
-            <div className="relative max-w-4xl mx-auto">
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-                Não somos generalistas. Somos especialistas em backend de alta criticidade com PHP/Laravel e Go, 
-                arquitetura resiliente, integrações financeiras e segurança para compliance. Se seu problema está 
+          <div className="bg-secondary border border-border border-l-4 border-l-quantum p-6 sm:p-8 md:p-12">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-foreground">
+                Não somos generalistas. Somos especialistas em backend de alta criticidade com PHP/Laravel e Go,
+                arquitetura resiliente, integrações financeiras e segurança para compliance. Se seu problema está
                 fora dessas áreas, indicamos profissionais melhores que nós.
               </p>
             </div>

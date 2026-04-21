@@ -16,7 +16,7 @@ export default {
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
-        'tt-hoves': ['TT Hoves', 'sans-serif'],
+        fraunces: ['Fraunces', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

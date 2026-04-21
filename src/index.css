@@ -2,48 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Ultra-Clean Corporate Fintech Theme */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    /* Dark mode institutional — #0a0a0a base */
+    --background: 0 0% 4%;
+    --foreground: 40 15% 94%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card: 0 0% 7%;
+    --card-foreground: 40 15% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 15% 94%;
 
-    /* Primary - Deep Corporate Black */
+    /* Primary - near-black for inverted panels (Footer, emphasis blocks) */
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 191 100% 50%;
 
-    /* Secondary - Light Gray */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    /* Secondary - slightly elevated dark surface */
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 40 15% 94%;
+    --secondary-glow: 0 0% 45%;
 
-    /* Accent - Neutral Gray */
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
+    /* Accent - subtle quantum-tinted dark */
+    --accent: 191 40% 9%;
+    --accent-foreground: 191 80% 65%;
+    --accent-glow: 191 100% 55%;
 
-    --muted: 0 0% 98%;
-    --muted-foreground: 0 0% 45%;
+    /* Quantum - Brand Vibrant Color (Cyan) */
+    --quantum: 191 100% 42%;
+    --quantum-foreground: 0 0% 4%;
+    --quantum-glow: 271 91% 65%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 50%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
+    --border: 0 0% 13%;
+    --input: 0 0% 10%;
+    --ring: 191 100% 42%;
 
-    --radius: 0.375rem;
+    --radius: 0.25rem;
 
-    /* Minimal Shadows Only */
-    --shadow-card: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px 0 hsl(191 100% 42% / 0.18);
+    --shadow-quantum: 0 0 40px 0 hsl(271 91% 65% / 0.18);
+    --shadow-golden: 0 0 25px 0 hsl(45 93% 58% / 0.22);
+
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(205 80% 6%) 50%, hsl(271 91% 10%) 100%);
+    --gradient-energy: linear-gradient(90deg, hsl(191 100% 42%) 0%, hsl(271 91% 65%) 100%);
+    --gradient-orbital: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(191 30% 7%) 100%);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,11 +74,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  h1, h2 {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
   }
 
@@ -79,20 +100,15 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-golden);
   }
 
-  .neon-glow {
-    box-shadow: var(--shadow-neon);
-  }
-
   /* Shine Effect */
   .text-shine {
     position: relative;
     background: linear-gradient(
       110deg,
-      hsl(200 85% 45%) 0%,
+      hsl(191 100% 42%) 0%,
       hsl(271 91% 65%) 30%,
       #ffffff 50%,
-      hsl(328 86% 64%) 70%,
-      hsl(200 85% 45%) 100%
+      hsl(191 100% 42%) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -113,7 +129,7 @@ All colors MUST be HSL.
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, hsl(var(--primary-glow) / 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle, hsl(var(--primary-glow) / 0.15) 0%, transparent 70%);
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
@@ -125,7 +141,7 @@ All colors MUST be HSL.
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -133,22 +149,11 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 5px;
+    background: hsl(var(--border));
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary-glow));
-  }
-
-  /* Tech Logos Contrast Enhancement */
-  .tech-logo-contrast {
-    filter: 
-      contrast(150%) 
-      brightness(120%) 
-      saturate(110%);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 8px;
-    padding: 4px;
+    background: hsl(var(--quantum));
   }
 }

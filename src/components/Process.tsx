@@ -37,16 +37,16 @@ export const Process = () => {
   ];
 
   return (
-    <section id="process" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-gray-50">
+    <section id="process" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-muted">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mb-12 sm:mb-16 md:mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-quantum mb-6 sm:mb-8">
             Como Trabalhamos
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
+          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
             Processo transparente. Sem surpresas.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-[1.6] sm:leading-[1.7]">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.6] sm:leading-[1.7]">
             Não começamos projetos de 6 meses sem provar que somos o fit certo. 
             Você testa nossa execução em um piloto real antes de qualquer compromisso long-term.
           </p>
@@ -56,18 +56,18 @@ export const Process = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="group bg-white border border-gray-200 hover:border-gray-900 transition-all duration-300 hover:shadow-lg"
+              className="group bg-card border border-border hover:border-quantum/40 transition-all duration-300"
             >
               <div className="p-6 sm:p-8 md:p-10">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                   {/* Left: Number + Icon */}
                   <div className="flex lg:flex-col items-start gap-4 lg:gap-6">
                     <div className="flex items-center gap-4">
-                      <span className="text-4xl sm:text-5xl font-bold text-gray-200 group-hover:text-gray-900 transition-colors duration-300">
+                      <span className="text-4xl sm:text-5xl font-bold text-border group-hover:text-quantum transition-colors duration-300">
                         {step.number}
                       </span>
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-gray-50 group-hover:bg-gray-900 transition-colors duration-300">
-                        <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-foreground group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-secondary border border-border group-hover:border-quantum/50 group-hover:bg-quantum/10 transition-colors duration-300">
+                        <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-muted-foreground group-hover:text-quantum transition-colors duration-300" strokeWidth={1.5} />
                       </div>
                     </div>
                   </div>
@@ -78,21 +78,21 @@ export const Process = () => {
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
                         {step.title}
                       </h3>
-                      <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-xs font-semibold text-gray-600 rounded-full whitespace-nowrap">
+                      <span className="inline-flex items-center px-3 py-1 bg-secondary text-xs font-semibold text-muted-foreground rounded-full whitespace-nowrap">
                         {step.duration}
                       </span>
                     </div>
 
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       {step.description}
                     </p>
 
-                    <div className="pt-3 border-t border-gray-100">
+                    <div className="pt-3 border-t border-border">
                       <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
                         <div>
-                          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Entregável: </span>
-                          <span className="text-sm text-gray-700">{step.deliverable}</span>
+                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Entregável: </span>
+                          <span className="text-sm text-foreground">{step.deliverable}</span>
                         </div>
                       </div>
                     </div>
@@ -104,25 +104,25 @@ export const Process = () => {
         </div>
 
         {/* Investment Info */}
-        <div className="mt-12 sm:mt-16 md:mt-20 bg-white border border-gray-200 p-6 sm:p-8 md:p-10">
+        <div className="mt-12 sm:mt-16 md:mt-20 bg-card border border-border p-6 sm:p-8 md:p-10">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">
               Investimento Típico
             </h3>
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Assessment</div>
+                <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">Assessment</div>
                 <div className="text-2xl font-bold text-foreground mb-1">R$ 8.000 - 15.000</div>
-                <div className="text-sm text-gray-600">Relatório completo + roadmap técnico prioritizado</div>
+                <div className="text-sm text-muted-foreground">Relatório completo + roadmap técnico prioritizado</div>
               </div>
               <div>
-                <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Pilot (30 dias)</div>
+                <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">Pilot (30 dias)</div>
                 <div className="text-2xl font-bold text-foreground mb-1">R$ 25.000 - 45.000</div>
-                <div className="text-sm text-gray-600">1 problema crítico resolvido + código em produção</div>
+                <div className="text-sm text-muted-foreground">1 problema crítico resolvido + código em produção</div>
               </div>
             </div>
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-600 leading-relaxed">
+            <div className="mt-6 pt-6 border-t border-border">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Parceria contínua: a partir de R$ 35.000/mês (squad dedicado). Valores variam conforme complexidade, 
                 urgência e volume de trabalho. Primeiro piloto sempre antes de compromisso long-term.
               </p>
@@ -132,12 +132,12 @@ export const Process = () => {
 
         {/* CTA */}
         <div className="mt-12 sm:mt-16 text-center">
-          <p className="text-base sm:text-lg text-gray-600 mb-6">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6">
             Quer saber se seu desafio se encaixa? Vamos conversar.
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center justify-center px-6 sm:px-8 h-11 sm:h-12 bg-foreground hover:bg-foreground/90 text-background rounded font-semibold text-sm transition-all"
+            className="inline-flex items-center justify-center px-6 sm:px-8 h-11 sm:h-12 bg-quantum hover:bg-quantum/90 text-quantum-foreground rounded font-semibold text-sm transition-all"
           >
             Agendar Conversa Inicial
           </button>

@@ -107,18 +107,18 @@ export const Cases = () => {
   const teamExperienceCases = cases.slice(5); // GovTech, SaaS
 
   return (
-    <section id="cases" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white">
+    <section id="cases" className="relative py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mb-12 sm:mb-16 md:mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 mb-6 sm:mb-8">
-            Projetos Reais
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-quantum mb-6 sm:mb-8">
+            Resultados
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
-            Sistemas que desenvolvemos. Problemas que resolvemos.
+          <h2 className="font-fraunces text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] sm:leading-[1.2] mb-6 sm:mb-8 tracking-tight">
+            Problemas reais. Métricas reais.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-[1.6] sm:leading-[1.7]">
-            5 projetos verificáveis (Storage, Slim, Biometria, Engenharia, Fintech Pix) desenvolvidos pela Neutrino. 
-            2 casos adicionais em cooperação com parceiros (GovTech, SaaS). Métricas de sistemas em produção.
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-[1.6] sm:leading-[1.7]">
+            Cinco projetos verificáveis desenvolvidos pela Neutrino, dois em cooperação técnica com parceiros.
+            Todos os números abaixo são de sistemas em produção — não de benchmark ou laboratório.
           </p>
         </div>
 
@@ -127,17 +127,17 @@ export const Cases = () => {
           {verifiableCases.map((caseStudy, index) => (
             <div 
               key={index}
-              className="group bg-gray-50 border border-gray-200 hover:border-gray-900 transition-all duration-300 hover:shadow-lg"
+              className="group bg-background border border-border hover:border-quantum/40 transition-all duration-300"
             >
               <div className="p-6 sm:p-8 md:p-10">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                   {/* Left: Icon + Category */}
                   <div className="flex-shrink-0 flex lg:flex-col items-start gap-4 lg:gap-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white border border-gray-200 group-hover:bg-gray-900 transition-colors duration-300">
-                      <caseStudy.icon className="w-6 h-6 sm:w-7 sm:h-7 text-foreground group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-secondary border border-border group-hover:border-quantum/50 group-hover:bg-quantum/10 transition-colors duration-300">
+                      <caseStudy.icon className="w-6 h-6 sm:w-7 sm:h-7 text-muted-foreground group-hover:text-quantum transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="lg:rotate-180 lg:[writing-mode:vertical-lr]">
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                         {caseStudy.category}
                       </span>
                     </div>
@@ -153,14 +153,14 @@ export const Cases = () => {
                       <div className="space-y-4">
                         <div>
                           <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-2">Desafio</h4>
-                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                             {caseStudy.challenge}
                           </p>
                         </div>
 
                         <div>
                           <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-2">Solução</h4>
-                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                             {caseStudy.solution}
                           </p>
                         </div>
@@ -168,11 +168,11 @@ export const Cases = () => {
                     </div>
 
                     {/* Results Grid */}
-                    <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-gray-200">
+                    <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-border">
                       {caseStudy.results.map((result, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 flex-shrink-0" />
-                          <p className="text-sm text-gray-700 leading-relaxed">
+                          <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                          <p className="text-sm text-foreground leading-relaxed">
                             {result}
                           </p>
                         </div>
@@ -184,7 +184,7 @@ export const Cases = () => {
                       {caseStudy.tech.map((tech) => (
                         <span 
                           key={tech}
-                          className="px-3 py-1 bg-white border border-gray-200 text-xs font-medium text-gray-600 rounded"
+                          className="px-3 py-1 bg-secondary border border-border text-xs font-medium text-muted-foreground rounded"
                         >
                           {tech}
                         </span>
@@ -203,7 +203,7 @@ export const Cases = () => {
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
               Cooperações Técnicas
             </h3>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Projetos desenvolvidos em cooperação com parceiros:
             </p>
           </div>
@@ -212,17 +212,17 @@ export const Cases = () => {
             {teamExperienceCases.map((caseStudy, index) => (
               <div 
                 key={index}
-                className="group bg-gray-50 border border-gray-200 hover:border-gray-400 transition-all duration-300"
+                className="group bg-background border border-border hover:border-border/80 transition-all duration-300"
               >
                 <div className="p-6 sm:p-8 md:p-10">
                   <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                     {/* Left: Icon + Category */}
                     <div className="flex-shrink-0 flex lg:flex-col items-start gap-4 lg:gap-6">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white border border-gray-200 group-hover:bg-gray-400 transition-colors duration-300">
-                        <caseStudy.icon className="w-6 h-6 sm:w-7 sm:h-7 text-foreground group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-secondary border border-border group-hover:border-border hover:bg-secondary/80 transition-colors duration-300">
+                        <caseStudy.icon className="w-6 h-6 sm:w-7 sm:h-7 text-muted-foreground transition-colors duration-300" strokeWidth={1.5} />
                       </div>
                       <div className="lg:rotate-180 lg:[writing-mode:vertical-lr]">
-                        <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                           {caseStudy.category}
                         </span>
                       </div>
@@ -238,14 +238,14 @@ export const Cases = () => {
                         <div className="space-y-4">
                           <div>
                             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-2">Desafio</h4>
-                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                               {caseStudy.challenge}
                             </p>
                           </div>
 
                           <div>
                             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-2">Solução</h4>
-                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                               {caseStudy.solution}
                             </p>
                           </div>
@@ -253,11 +253,11 @@ export const Cases = () => {
                       </div>
 
                       {/* Results Grid */}
-                      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-gray-200">
+                      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-border">
                         {caseStudy.results.map((result, idx) => (
                           <div key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                            <p className="text-sm text-gray-700 leading-relaxed">
+                            <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
+                            <p className="text-sm text-foreground leading-relaxed">
                               {result}
                             </p>
                           </div>
@@ -269,7 +269,7 @@ export const Cases = () => {
                         {caseStudy.tech.map((tech) => (
                           <span 
                             key={tech}
-                            className="px-3 py-1 bg-white border border-gray-200 text-xs font-medium text-gray-600 rounded"
+                            className="px-3 py-1 bg-secondary border border-border text-xs font-medium text-muted-foreground rounded"
                           >
                             {tech}
                           </span>
@@ -284,16 +284,10 @@ export const Cases = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 sm:mt-16 md:mt-20 text-center">
-          <p className="text-base sm:text-lg text-gray-600 mb-6">
-            Seu problema é similar? Podemos compartilhar referências e detalhes técnicos em uma conversa.
+        <div className="mt-16 sm:mt-20 pt-12 border-t border-border">
+          <p className="text-base text-muted-foreground max-w-2xl">
+            Referências e detalhes técnicos adicionais disponíveis para projetos em avaliação.
           </p>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center justify-center px-6 sm:px-8 h-11 sm:h-12 bg-foreground hover:bg-foreground/90 text-background rounded font-semibold text-sm transition-all"
-          >
-            Falar com a Equipe
-          </button>
         </div>
       </div>
     </section>
