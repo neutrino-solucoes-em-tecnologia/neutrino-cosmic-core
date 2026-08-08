@@ -1,160 +1,198 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
-All colors MUST be HSL.
-*/
+/*
+ * Inter Variable, self-hosted — um único woff2 cobre 100 a 900 e não há uma
+ * requisição sequer a domínio de terceiro. O CDN do Google Fonts que estava
+ * aqui também baixava Orbitron em todo visitante, e a Orbitron deixou de ser
+ * usada no commit 11475d9.
+ *
+ * O @font-face é declarado à mão em vez de `@import '@fontsource-variable/inter'`
+ * porque o pacote traz sete subsets — cirílico, grego, vietnamita — e o site é
+ * inteiro em português. Todos os acentos do idioma cabem em U+0000–00FF.
+ */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-@layer base {
-  :root {
-    /* Dark mode institutional — #0a0a0a base */
-    --background: 0 0% 4%;
-    --foreground: 40 15% 94%;
+@theme {
+  /*
+   * Paleta de instrumento — ver DESIGN.md.
+   *
+   * A anterior era índigo sobre preto-azulado. Era bonita e era a assinatura de
+   * metade das ferramentas de desenvolvedor: azul é a cor padrão de "tecnologia"
+   * e por isso não diz nada sobre quem a usa.
+   *
+   * Esta segue a lógica de um painel de verdade: chassi frio, leitura quente.
+   * Osciloscópio, cabine de voo, sala de controle — em todos, o instrumento é
+   * escuro e neutro, e o que se lê nele é âmbar. A cor deixa de ser decoração e
+   * passa a ter função: só recebe âmbar o que foi medido.
+   */
+  --color-mine: #07090c;
+  --color-water: #0c0f15;
+  --color-deep: #050609;
 
-    --card: 0 0% 7%;
-    --card-foreground: 40 15% 94%;
+  /*
+   * Âmbar de leitura — o único acento do site.
+   *
+   * Reservado a dado medido, ação primária e ao evento na cena. Se aparecer em
+   * algo que não é uma dessas três coisas, virou enfeite e a regra quebrou.
+   */
+  --color-signal: #ffb020;
+  --color-signal-hi: #ffc658;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 40 15% 94%;
+  /* Branco escasso: headline, números e os picos da cena. Em mais nada. */
+  --color-event: #f2f5f9;
+  --color-body: #99a2b0;
+  --color-faint: #5b6472;
 
-    /* Primary - near-black for inverted panels (Footer, emphasis blocks) */
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 191 100% 50%;
+  /*
+   * Estrutura.
+   *
+   * `hairline` divide, `edge` delimita bloco de dado, `mesh` desenha a malha do
+   * container. Todos neutros: a estrutura de um instrumento é usinada, não
+   * colorida — e um azul aqui devolveria justamente o que esta paleta descarta.
+   */
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-edge: rgba(255, 255, 255, 0.16);
+  --color-mesh: rgba(255, 255, 255, 0.045);
 
-    /* Secondary - slightly elevated dark surface */
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 40 15% 94%;
-    --secondary-glow: 0 0% 45%;
+  --font-sans:
+    'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
 
-    /* Accent - subtle quantum-tinted dark */
-    --accent: 191 40% 9%;
-    --accent-foreground: 191 80% 65%;
-    --accent-glow: 191 100% 55%;
+  /*
+   * A segunda família — e o DESIGN.md proibia isso.
+   *
+   * A regra existia contra decoração, e continua valendo para prosa. Mas dado
+   * medido e prosa não são a mesma coisa, e tratá-los com a mesma face é o que
+   * fazia a página parecer institucional em vez de técnica: monoespaçada é o
+   * sinal mais imediato de instrumentação que a tipografia tem. Usada só em
+   * número, unidade, rótulo e identificador — nunca em frase.
+   *
+   * Custo: zero byte. É a mono que o sistema operacional já tem.
+   */
+  --font-mono:
+    ui-monospace, 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', 'JetBrains Mono', 'Roboto Mono',
+    Menlo, Consolas, monospace;
 
-    /* Quantum - Brand Vibrant Color (Cyan) */
-    --quantum: 191 100% 42%;
-    --quantum-foreground: 0 0% 4%;
-    --quantum-glow: 271 91% 65%;
-
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 50%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 13%;
-    --input: 0 0% 10%;
-    --ring: 191 100% 42%;
-
-    --radius: 0.25rem;
-
-    /* Shadows */
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 40px 0 hsl(191 100% 42% / 0.18);
-    --shadow-quantum: 0 0 40px 0 hsl(271 91% 65% / 0.18);
-    --shadow-golden: 0 0 25px 0 hsl(45 93% 58% / 0.22);
-
-    /* Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(205 80% 6%) 50%, hsl(271 91% 10%) 100%);
-    --gradient-energy: linear-gradient(90deg, hsl(191 100% 42%) 0%, hsl(271 91% 65%) 100%);
-    --gradient-orbital: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(191 30% 7%) 100%);
-
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
+  /* Container 1280: o conteúdo é texto denso, não vitrine. 1440 dispersa. */
+  --spacing-gutter: 3rem;
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-mine);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    /* cv05/ss03: desambigua l/I e aperta o & — importa em tamanho de display. */
+    font-feature-settings: 'cv05', 'ss03';
   }
 
-  h1, h2 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+  /* Métrica que dança ao contar destrói a impressão de instrumento. */
+  .tnum,
+  table {
+    font-variant-numeric: tabular-nums;
   }
 
-  h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 700;
+  /*
+   * Dado medido, unidade, rótulo e identificador. Nunca frase.
+   * O tracking negativo compensa a largura natural da monoespaçada em caixa
+   * alta, que sem isso abre demais e lê como etiqueta de formulário.
+   */
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
   }
 
-  /* Modern Effects */
-  .cosmic-glow {
-    box-shadow: var(--shadow-glow);
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-signal) 40%, transparent);
+    color: var(--color-event);
   }
 
-  .quantum-glow {
-    box-shadow: var(--shadow-quantum);
+  :focus-visible {
+    outline: 2px solid var(--color-signal-hi);
+    outline-offset: 3px;
   }
 
-  .golden-glow {
-    box-shadow: var(--shadow-golden);
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /*
+   * Entrada única do site: sobe e desfoca ao entrar em viewport. Feita em CSS
+   * puro com IntersectionObserver em vez de framer-motion — a biblioteca custa
+   * ~50KB gzip para reproduzir estas seis linhas, e a página inteira argumenta
+   * pelo próprio peso.
+   */
+  /*
+   * O desfoque estava em 6px e a leitura durante o scroll ficava desconfortável:
+   * quem rola em ritmo normal atravessa a seção inteira antes de a transição
+   * terminar e lê texto borrado o tempo todo. 3px marca a entrada sem cobrar
+   * legibilidade por ela.
+   */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(3px);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
   }
 
-  /* Shine Effect */
-  .text-shine {
-    position: relative;
-    background: linear-gradient(
-      110deg,
-      hsl(191 100% 42%) 0%,
-      hsl(271 91% 65%) 30%,
-      #ffffff 50%,
-      hsl(191 100% 42%) 100%
+  .reveal[data-in='true'] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+
+  /* Fio: a única forma de elevação do site. Sombra só existe no brilho do CTA. */
+  .rule {
+    border-color: var(--color-hairline);
+  }
+
+  /*
+   * Malha estrutural — as colunas do container desenhadas atrás de tudo.
+   *
+   * É o que separa uma página que flutua de uma que está montada sobre uma
+   * estrutura declarada. Fica no limiar do perceptível de propósito: quem olha
+   * não deve enxergar listras, deve sentir que existe um sistema por baixo.
+   */
+  .mesh {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-mesh) 0 1px,
+      transparent 1px calc(100% / 6)
     );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 2.5s ease-in-out infinite;
-  }
-
-  .particle-trail {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .particle-trail::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, hsl(var(--primary-glow) / 0.15) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-
-  /* Smooth Scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--background));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--quantum));
+    background-size: 100% 100%;
   }
 }

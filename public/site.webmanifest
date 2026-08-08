@@ -1,29 +1,15 @@
 {
-  "name": "Neutrino - Empresa Tecnológica R$ 2.5B",
+  "name": "Neutrino",
   "short_name": "Neutrino",
-  "description": "Empresa tecnológica com ecossistema de 15+ empresas disruptivas",
+  "description": "Engenharia para sistemas em produção onde a falha tem consequência.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A0A0A",
-  "theme_color": "#00D9FF",
-  "orientation": "portrait-primary",
+  "background_color": "#07090C",
+  "theme_color": "#07090C",
+  "lang": "pt-BR",
   "icons": [
-    {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    }
-  ],
-  "categories": ["business", "technology", "productivity"],
-  "lang": "pt-BR"
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/favicon-16x16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
 }

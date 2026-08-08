@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# Neutrino — site institucional
 
-## Project info
+Landing de página única, em React 19 + Vite 7 + Tailwind 4, com três dependências
+em produção: React, React DOM e a fonte.
 
-**URL**: https://lovable.dev/projects/3a1199dc-53c8-461c-a20b-277e258be657
+A restrição é deliberada. A seção `Esta página` mede o próprio peso em runtime e
+publica o número — então cada dependência nova torna uma afirmação da página
+menos verdadeira. Antes de instalar qualquer coisa, leia
+[DESIGN.md](DESIGN.md) § "Prova, não asserção".
 
-## How can I edit this code?
+## Rodar
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/3a1199dc-53c8-461c-a20b-277e258be657) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | servidor de desenvolvimento |
+| `npm run build` | typecheck → bundle → gera OG e favicons |
+| `npm run typecheck` | só o TypeScript |
+| `npm run lint` | ESLint |
+| `npm run og` | regenera `og-image.png` e os favicons a partir do script |
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Onde as coisas estão
 
-**Use GitHub Codespaces**
+```
+src/
+  config/site.ts        tudo que aponta para fora: contato, nav, dados legais
+  index.css             tokens da paleta Cherenkov (@theme do Tailwind 4)
+  scene/                o detector — Canvas 2D, sem WebGL
+  sections/<nome>/      model.ts (conteúdo) + <Nome>Section.tsx (layout)
+  site/                 Navbar, Footer, Section, Cta, Reveal, roteador
+  pages/                Home, Privacidade, NotFound
+scripts/build-og.mjs    gera og-image.png e favicons a partir da identidade
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Conteúdo mora em `model.ts`, nunca dentro do JSX. Trocar um número de caso ou
+um passo do método não deve exigir abrir um arquivo com `className` dentro.
 
-## What technologies are used for this project?
+## Documentos
 
-This project is built with:
+- **[DESIGN.md](DESIGN.md)** — a identidade: de onde vem, paleta, tipografia,
+  a gramática da cena e a lista do que não fazer. É contrato, não sugestão.
+- **[PRODUCT.md](PRODUCT.md)** — o que a página afirma, com que autoridade, e as
+  pendências que bloqueiam o lançamento (preço, CNPJ, auditoria dos números).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Publicar
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3a1199dc-53c8-461c-a20b-277e258be657) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Deploy na Vercel a partir da `main`. `vercel.json` traz CSP, HSTS e cache
+imutável para `/assets`. Não há variável de ambiente e não há backend.

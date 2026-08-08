@@ -2,98 +2,102 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neutrino | Engenharia de Software de Alta Complexidade | Sistemas Mission-Critical</title>
-    <meta name="description" content="Time enxuto de engenheiros sêniores especializados em arquitetura, segurança e escalabilidade para sistemas mission-critical. PHP/Laravel, Go, AWS. Pricing transparente." />
-    <meta name="keywords" content="neutrino, engenharia de software, sistemas mission-critical, alta performance, php laravel, arquitetura de software, backend alta escala, fintech, curitiba, paraná" />
-    <meta name="author" content="Neutrino Soluções em Tecnologia" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href="https://neutrino.dev.br" />
-    
-    <!-- Performance Optimization -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Neutrino, engenharia de software de alta complexidade</title>
+    <meta
+      name="description"
+      content="Construímos o software que sustenta operações inteiras. Arquitetura e engenharia avançada, da concepção à produção."
+    />
+    <link rel="canonical" href="https://neutrino.dev.br/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+    <!--
+      Pintado antes do bundle: sem isto o primeiro quadro é branco, e um site
+      inteiramente escuro que pisca branco parece quebrado antes de carregar.
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #07090c;
+        color-scheme: dark;
+      }
+    </style>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
-    <!-- Critical Fonts - Optimized Loading -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+    <meta name="theme-color" content="#07090C" />
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Neutrino | Engenharia de Software de Alta Complexidade" />
-    <meta property="og:description" content="Time enxuto de engenheiros sêniores especializados em sistemas mission-critical. Arquitetura, segurança e escalabilidade para sistemas onde downtime custa dinheiro real." />
+    <!--
+      og:image precisa ser PNG ou JPG: WhatsApp, LinkedIn, Facebook e X não
+      renderizam SVG em Open Graph. O site anterior apontava para um .svg, então
+      todo compartilhamento saía sem imagem. Gerado por `npm run og`.
+    -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Neutrino" />
+    <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://neutrino.dev.br/" />
-    <meta property="og:site_name" content="Neutrino Tecnologia" />
-    <meta property="og:image" content="https://neutrino.dev.br/og-image-static.svg" />
-    <meta property="og:image:alt" content="Neutrino - Empresa Tecnológica de R$ 2.5 Bilhões" />
+    <meta property="og:title" content="Neutrino, engenharia de software de alta complexidade" />
+    <meta
+      property="og:description"
+      content="Construímos o software que sustenta operações inteiras. Arquitetura e engenharia avançada, da concepção à produção."
+    />
+    <meta property="og:image" content="https://neutrino.dev.br/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="pt_BR" />
-    
-    <!-- Twitter Cards -->
+    <meta property="og:image:alt" content="Neutrino, engenharia de software de alta complexidade" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@neutrino_tech" />
-    <meta name="twitter:creator" content="@leonardo_lima" />
-    <meta name="twitter:title" content="Neutrino | Engenharia de Software de Alta Complexidade" />
-    <meta name="twitter:description" content="Time enxuto de engenheiros sêniores para sistemas mission-critical. PHP/Laravel, Go, AWS. Curitiba, Brasil." />
-    <meta name="twitter:image" content="https://neutrino.dev.br/og-image-static.svg" />
-    <meta name="twitter:image:alt" content="Logo Neutrino - Empresa Tecnológica" />
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="application-name" content="Neutrino" />
-    <meta name="msvalidate.01" content="" />
-    <meta name="google-site-verification" content="" />
-    <meta name="yandex-verification" content="" />
-    
-    <!-- Structured Data JSON-LD -->
+    <meta name="twitter:title" content="Neutrino, engenharia de software de alta complexidade" />
+    <meta
+      name="twitter:description"
+      content="Construímos o software que sustenta operações inteiras. Arquitetura e engenharia avançada, da concepção à produção."
+    />
+    <meta name="twitter:image" content="https://neutrino.dev.br/og-image.png" />
+
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Neutrino Soluções em Tecnologia",
-      "alternateName": "Neutrino",
-      "url": "https://neutrino.dev.br",
-      "logo": "https://neutrino.dev.br/og-image-static.svg",
-      "description": "Time enxuto de engenheiros sêniores especializados em arquitetura, segurança e escalabilidade para sistemas mission-critical.",
-      "foundingDate": "2020",
-      "founder": {
-        "@type": "Person",
-        "name": "Leonardo Lima"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Curitiba",
-        "addressRegion": "PR",
-        "addressCountry": "BR"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "neutrino@neutrino.dev.br",
-        "contactType": "customer service"
-      },
-      "sameAs": [
-        "https://linkedin.com/company/neutrino",
-        "https://twitter.com/neutrino_tech",
-        "https://instagram.com/neutrino_tech"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Neutrino Soluções em Tecnologia",
+        "alternateName": "Neutrino",
+        "url": "https://neutrino.dev.br",
+        "description": "Engenharia para sistemas em produção onde a falha técnica tem consequência direta em receita, compliance ou operação.",
+        "foundingDate": "2020",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "neutrino@neutrino.dev.br",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/neutrino-solu%C3%A7%C3%B5es-em-tecnologia/"
+        ]
+      }
     </script>
   </head>
 
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="max-width: 40rem; margin: 0 auto; padding: 6rem 1.5rem; font-family: system-ui; color: #99a2b0">
+        <h1 style="color: #f2f5f9">Neutrino</h1>
+        <p>
+          Arquitetura e engenharia avançada para construir os sistemas de que uma operação inteira passa a depender, da concepção à produção.</p>
+        <p>
+          Escreva para
+          <a style="color: #ffb020" href="mailto:neutrino@neutrino.dev.br">neutrino@neutrino.dev.br</a>.
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
