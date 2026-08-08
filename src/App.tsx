@@ -1,35 +1,29 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Sobre from "./pages/Sobre";
-import Ecossistema from "./pages/Ecossistema";
-import { Privacidade } from "./pages/Privacidade";
-import { Cookies } from "./pages/Cookies";
-import NotFound from "./pages/NotFound";
+import { Home } from './pages/Home'
+import { NotFound } from './pages/NotFound'
+import { Principios } from './pages/Principios'
+import { Sistemas } from './pages/Sistemas'
+import { Privacidade } from './pages/Privacidade'
+import { useRoute } from './site/router'
 
-const queryClient = new QueryClient();
+/**
+ * Três rotas estáticas. `/sobre` e `/ecossistema` foram removidas: publicavam
+ * "holding tecnológica de R$ 2,5 bilhões" e "15+ empresas controladas" a um
+ * clique de uma home que promete não vender hype — e as duas estavam no
+ * sitemap com prioridade 0.9. Ver DESIGN.md § "Do not".
+ */
+export function App() {
+  const path = useRoute()
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/ecossistema" element={<Ecossistema />} />
-          <Route path="/privacidade" element={<Privacidade />} />
-          <Route path="/cookies" element={<Cookies />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+  switch (path.replace(/\/+$/, '') || '/') {
+    case '/':
+      return <Home />
+    case '/sistemas':
+      return <Sistemas />
+    case '/principios':
+      return <Principios />
+    case '/privacidade':
+      return <Privacidade />
+    default:
+      return <NotFound />
+  }
+}
